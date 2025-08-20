@@ -71,6 +71,7 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
       </div>
 
       <div className="container mx-auto relative z-10">
+        {/* Text Description */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
             {title}
@@ -80,12 +81,12 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
           </p>
         </div>
 
-        <div className="max-w-[900px] mx-auto mb-12">
+        {/* Video Container */}
+        <div className="max-w-[900px] mx-auto mb-16">
           <div 
             className="relative aspect-video overflow-hidden shadow-2xl group animate-fade-in"
             style={{ 
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 25px -5px rgba(5, 55, 108, 0.2)',
-              transform: `translateY(${scrollY * -0.05}px)`
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 25px -5px rgba(5, 55, 108, 0.2)'
             }}
           >
             {!isPlaying ? (
@@ -131,12 +132,11 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
               />
             )}
           </div>
-
         </div>
         
-        {/* Secondary actions */}
+        {/* Bottom Button */}
         <div className="max-w-[900px] mx-auto">
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center">
             <Button
               variant="outline"
               size="lg"
