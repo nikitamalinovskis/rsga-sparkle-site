@@ -55,7 +55,7 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
     
     return (
       <div className={`w-16 h-16 bg-gradient-to-br ${colors[colorIndex]} rounded-xl flex items-center justify-center shadow-lg`}>
-        <span className="text-white font-bold text-lg">IS</span>
+        <span className="text-white font-bold text-lg">JB</span>
       </div>
     );
   };
