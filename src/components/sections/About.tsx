@@ -56,7 +56,7 @@ const About: React.FC<AboutProps> = ({ text }) => {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="container-3of4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image/Visual Side */}
           <div className="animate-left opacity-0">

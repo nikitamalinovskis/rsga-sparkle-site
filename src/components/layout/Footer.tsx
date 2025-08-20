@@ -72,7 +72,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         </div>
       </div>
 
-      <div className="container mx-auto relative z-10 py-16">
+      <div className="container-3of4 relative z-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="footer-column opacity-0">

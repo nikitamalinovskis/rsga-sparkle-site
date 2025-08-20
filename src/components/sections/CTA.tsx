@@ -84,7 +84,7 @@ const CTA: React.FC<CTAProps> = ({ text, button }) => {
         <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="container-3of4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Decorative element */}
           <div className="mb-8">

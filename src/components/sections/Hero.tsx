@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-brand-primary/2 to-transparent" />
       </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="container-3of4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Title */}
           <h1 className="animate-on-scroll text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-fg-primary mb-6 leading-tight">

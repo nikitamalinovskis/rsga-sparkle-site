@@ -67,7 +67,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
         </div>
       </div>
       
-      <div className="container mx-auto relative z-10">
+      <div className="container-3of4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-fg-primary mb-4">
             Services
