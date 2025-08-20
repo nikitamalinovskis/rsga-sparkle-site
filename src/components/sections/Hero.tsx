@@ -121,7 +121,13 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
         
         {/* Scroll indicator - positioned at very bottom of hero */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="flex flex-col items-center cursor-pointer group">
+          <div 
+            className="flex flex-col items-center cursor-pointer group"
+            onClick={() => {
+              const nextSection = document.querySelector('#services') || document.querySelector('section:nth-of-type(2)');
+              nextSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             <ChevronDown className="w-6 h-6 text-brand-primary group-hover:animate-pulse transition-all duration-300" />
           </div>
         </div>
