@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
   const RSGALogoFooter = () => (
     <a href="/" className="inline-block">
       <img 
-        src="/rsga_logo_footer.png" 
+        src="/lovable-uploads/249cb742-4a2b-469e-b6b0-e0da82093c55.png" 
         alt="RSGA Logo" 
         className="h-8 w-auto"
       />
