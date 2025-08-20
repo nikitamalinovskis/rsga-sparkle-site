@@ -60,7 +60,7 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
     );
   };
 
-  const truncateText = (text: string, maxLength: number = 140) => {
+  const truncateText = (text: string, maxLength: number = 120) => {
     if (text.length <= maxLength) {
       return text.padEnd(maxLength, ' ') + '.....';
     }
