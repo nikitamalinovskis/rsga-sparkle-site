@@ -150,14 +150,17 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="mt-12 pt-8">
-          <div className="w-full h-px bg-white/30 mb-8"></div>
-          <div className="text-center">
-            <p className="text-white/60 text-sm">
-              © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
-            </p>
-          </div>
+      </div>
+
+      {/* Full-width Divider */}
+      <div className="w-full h-px bg-white/30 mt-12"></div>
+      
+      {/* Copyright - constrained width */}
+      <div className="container-3of4 py-8">
+        <div className="text-center">
+          <p className="text-white/60 text-sm">
+            © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
