@@ -28,11 +28,13 @@ const Header = () => {
   ];
 
   const RSGALogo = () => (
-    <img 
-      src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" 
-      alt="RSGA Logo" 
-      className="h-8 w-auto"
-    />
+    <a href="/" className="inline-block">
+      <img 
+        src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" 
+        alt="RSGA Logo" 
+        className="h-8 w-auto"
+      />
+    </a>
   );
 
   return (
