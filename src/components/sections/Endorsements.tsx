@@ -60,6 +60,13 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
     );
   };
 
+  const truncateText = (text: string, maxLength: number = 100) => {
+    if (text.length <= maxLength) {
+      return text.padEnd(maxLength, ' ') + '.....';
+    }
+    return text.substring(0, maxLength) + '.....';
+  };
+
   return (
     <section 
       ref={sectionRef} 
@@ -115,7 +122,7 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
 
                 {/* Testimonial */}
                 <blockquote className="text-fg-secondary mb-6 leading-relaxed text-base italic group-hover:text-fg-primary transition-colors duration-300">
-                  "{endorsement.testimonial}"
+                  "{truncateText(endorsement.testimonial)}"
                 </blockquote>
 
                 {/* Author */}
