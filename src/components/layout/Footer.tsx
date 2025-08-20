@@ -98,7 +98,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                 <a
                   key={index}
                   href={link.href}
-                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring"
+                  className="inline-block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring"
                 >
                   {link.label}
                 </a>
