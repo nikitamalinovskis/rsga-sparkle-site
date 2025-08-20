@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 interface HeroProps {
   title: string;
@@ -102,26 +102,25 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
             {cta.map((button, index) => (
               <Button
                 key={index}
-                variant={index === 0 ? "default" : "secondary"}
+                variant={index === 0 ? "default" : "outline"}
                 size="lg"
-                className={`min-w-[180px] transition-all duration-500 ${
+                className={`min-w-[180px] h-12 transition-all duration-300 ${
                   index === 0 
-                    ? "bg-brand-primary hover:bg-brand-primary-strong text-white shadow-lg hover:shadow-xl hover:scale-105" 
-                    : "bg-white/10 backdrop-blur-sm border-brand-primary/20 hover:bg-white/20 hover:border-brand-primary/40 hover:scale-105"
+                    ? "bg-brand-primary hover:bg-[#03294d] text-white shadow-lg hover:shadow-xl" 
+                    : "bg-transparent border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10"
                 } focus-ring animate-scale-in`}
                 style={{ animationDelay: `${index * 200 + 800}ms` }}
               >
                 {button.label}
                 {index === 0 && <ArrowRight className="ml-2 h-4 w-4" />}
-                {index === 1 && <Play className="ml-2 h-4 w-4" />}
               </Button>
             ))}
           </div>
 
           {/* Scroll indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-brand-primary/30 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-brand-primary rounded-full mt-2 animate-pulse" />
+            <div className="flex flex-col items-center cursor-pointer group">
+              <ChevronDown className="w-6 h-6 text-brand-primary group-hover:animate-pulse transition-all duration-300" />
             </div>
           </div>
         </div>

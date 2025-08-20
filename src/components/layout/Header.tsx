@@ -28,12 +28,11 @@ const Header = () => {
   ];
 
   const RSGALogo = () => (
-    <svg width="120" height="32" viewBox="0 0 120 32" className="text-brand-primary">
-      <rect x="0" y="0" width="24" height="24" fill="currentColor" rx="4"/>
-      <text x="28" y="18" fontSize="18" fontWeight="700" fill="currentColor" fontFamily="Inter">RSGA</text>
-      <rect x="4" y="4" width="16" height="16" fill="white" rx="2"/>
-      <text x="6" y="16" fontSize="12" fontWeight="700" fill="currentColor">R</text>
-    </svg>
+    <img 
+      src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" 
+      alt="RSGA Logo" 
+      className="h-8 w-auto"
+    />
   );
 
   return (
@@ -73,7 +72,7 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-4">
               <Button 
                 variant="default" 
-                className="focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="focus-ring bg-brand-primary hover:bg-[#03294d] text-white shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Get a quote
               </Button>

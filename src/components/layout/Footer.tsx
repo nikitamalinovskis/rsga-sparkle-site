@@ -42,12 +42,11 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
   }, []);
 
   const RSGALogoWhite = () => (
-    <svg width="120" height="32" viewBox="0 0 120 32" className="text-white">
-      <rect x="0" y="0" width="24" height="24" fill="currentColor" rx="4"/>
-      <text x="28" y="18" fontSize="18" fontWeight="700" fill="currentColor" fontFamily="Inter">RSGA</text>
-      <rect x="4" y="4" width="16" height="16" fill="rgba(5, 55, 108, 1)" rx="2"/>
-      <text x="6" y="16" fontSize="12" fontWeight="700" fill="white">R</text>
-    </svg>
+    <img 
+      src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" 
+      alt="RSGA Logo" 
+      className="h-8 w-auto brightness-0 invert"
+    />
   );
 
   const quickLinks = [
@@ -65,15 +64,10 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
           <div className="absolute top-20 right-20 w-64 h-64 bg-white rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-20 w-48 h-48 bg-white rounded-full blur-3xl" />
         </div>
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
-          backgroundSize: '20px 20px'
-        }} />
       </div>
 
       <div className="container mx-auto relative z-10 py-16">
@@ -102,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                 <a
                   key={index}
                   href={link.href}
-                  className="block text-white/80 hover:text-white transition-colors duration-300 link-underline focus-ring"
+                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 link-underline focus-ring"
                 >
                   {link.label}
                 </a>
@@ -120,7 +114,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                   href={`https://maps.google.com/?q=${encodeURIComponent(contacts.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-white transition-colors duration-300 text-sm leading-relaxed"
+                  className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm leading-relaxed"
                 >
                   {contacts.address}
                 </a>
@@ -130,7 +124,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                 <Phone className="h-5 w-5 text-white/60 flex-shrink-0" />
                 <a 
                   href={`tel:${contacts.phone}`}
-                  className="text-white/80 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm"
                 >
                   {contacts.phone}
                 </a>
@@ -140,7 +134,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                 <Mail className="h-5 w-5 text-white/60 flex-shrink-0" />
                 <a 
                   href={`mailto:${contacts.email}`}
-                  className="text-white/80 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm"
                 >
                   {contacts.email}
                 </a>
@@ -156,12 +150,9 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
 
         {/* Divider */}
         <div className="border-t border-white/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-center">
             <p className="text-white/60 text-sm">
-              © {new Date().getFullYear()} {contacts.company}. All rights reserved.
-            </p>
-            <p className="text-white/60 text-sm">
-              Innovative environmental solutions for a sustainable future.
+              © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
             </p>
           </div>
         </div>

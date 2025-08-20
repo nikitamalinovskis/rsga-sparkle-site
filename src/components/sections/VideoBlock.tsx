@@ -80,10 +80,13 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-[900px] mx-auto">
           <div 
-            className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group"
-            style={{ transform: `rotateX(${scrollY * 0.01}deg) rotateY(${scrollY * 0.005}deg)` }}
+            className="relative aspect-video overflow-hidden shadow-2xl group animate-fade-in"
+            style={{ 
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 25px -5px rgba(5, 55, 108, 0.2)',
+              transform: `translateY(${scrollY * -0.05}px)`
+            }}
           >
             {!isPlaying ? (
               <>
@@ -130,7 +133,7 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
           </div>
 
           {/* Secondary actions */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+          <div className="flex justify-center mt-8">
             <Button
               variant="outline"
               size="lg"
