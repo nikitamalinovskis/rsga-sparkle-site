@@ -17,18 +17,31 @@ const Header = () => {
     return () => window.removeEventListener('scroll', updateScrollProgress);
   }, []);
   const navLinks = [{
-    href: '#services',
-    label: 'Services'
+    href: '/en/services',
+    label: 'Services',
+    hasDropdown: true
   }, {
-    href: '#projects',
+    href: '/en/projects',
     label: 'Projects'
   }, {
-    href: '#about',
+    href: '/en/about',
     label: 'About'
   }, {
-    href: '#contacts',
+    href: '/en/contacts',
     label: 'Contacts'
+  }, {
+    href: '/en/blog',
+    label: 'Blog'
   }];
+
+  const serviceLinks = [
+    { href: '/en/services/alternative-cover', label: 'Alternative Cover' },
+    { href: '/en/services/hydroseeding', label: 'Hydroseeding' },
+    { href: '/en/services/industrial-deodorant-dust', label: 'Industrial Deodorant' },
+    { href: '/en/services/sale-of-sand', label: 'Sale of Sand' },
+    { href: '/en/services/earthworks', label: 'Earthworks' },
+    { href: '/en/services/planning-business-development', label: 'Planning & Development' }
+  ];
   const RSGALogo = () => <a href="/" className="inline-block">
       <img src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" alt="RSGA Logo" className="h-8 w-auto" />
     </a>;
