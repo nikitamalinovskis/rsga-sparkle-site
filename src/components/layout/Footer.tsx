@@ -42,11 +42,13 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
   }, []);
 
   const RSGALogoFooter = () => (
-    <img 
-      src="/lovable-uploads/e9f998e2-091a-46b4-a451-f14cc3f4101d.png" 
-      alt="RSGA Logo" 
-      className="h-8 w-auto"
-    />
+    <a href="/" className="inline-block">
+      <img 
+        src="/lovable-uploads/e9f998e2-091a-46b4-a451-f14cc3f4101d.png" 
+        alt="RSGA Logo" 
+        className="h-8 w-auto"
+      />
+    </a>
   );
 
   const quickLinks = [
