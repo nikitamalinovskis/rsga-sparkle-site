@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({
         </div>
       </div>
 
-      <div className="container mx-auto relative z-10 py-[50px]">
+      <div className="container mx-auto relative z-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="footer-column opacity-0">
@@ -70,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({
             <div className="space-y-4">
               <div>
                 <h3 className="text-white font-semibold text-lg mb-2">{contacts.company}</h3>
-                <p className="text-white/80 text-sm">Registration No: {contacts.registration_no}</p>
+                
               </div>
               <p className="text-white/90 leading-relaxed">
                 Leading provider of innovative environmental solutions for sustainable waste management across Latvia and Europe.
@@ -122,7 +122,7 @@ const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Divider */}
-        <div className="mt-12 pt-8">
+        <div className="mt-12 pt-8 py-0">
           <div className="w-full h-px bg-white/30 mb-8"></div>
           <div className="text-center">
             <p className="text-white/60 text-sm">
