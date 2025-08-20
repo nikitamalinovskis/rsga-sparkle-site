@@ -85,7 +85,7 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-fg-primary mb-4">
-            Endorsements from our clients ✅
+            Endorsements from our clients
           </h2>
           <p className="text-lg md:text-xl text-fg-secondary max-w-3xl mx-auto leading-relaxed">
             Trusted by leading waste management companies across Latvia and Europe
