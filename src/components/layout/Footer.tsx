@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { MapPin, Phone, Mail, FileText } from 'lucide-react';
-
 interface ContactInfo {
   company: string;
   registration_no: string;
@@ -9,61 +8,50 @@ interface ContactInfo {
   email: string;
   fax: string;
 }
-
 interface FooterProps {
   contacts: ContactInfo;
 }
-
-const Footer: React.FC<FooterProps> = ({ contacts }) => {
+const Footer: React.FC<FooterProps> = ({
+  contacts
+}) => {
   const footerRef = useRef<HTMLElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const columns = entry.target.querySelectorAll('.footer-column');
-            columns.forEach((column, index) => {
-              setTimeout(() => {
-                column.classList.add('animate-fade-in');
-              }, index * 150);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const columns = entry.target.querySelectorAll('.footer-column');
+          columns.forEach((column, index) => {
+            setTimeout(() => {
+              column.classList.add('animate-fade-in');
+            }, index * 150);
+          });
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
     if (footerRef.current) {
       observer.observe(footerRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
-
-  const RSGALogoFooter = () => (
-    <a href="/" className="inline-block">
-      <img 
-        src="/lovable-uploads/e9f998e2-091a-46b4-a451-f14cc3f4101d.png" 
-        alt="RSGA Logo" 
-        className="h-8 w-auto"
-      />
-    </a>
-  );
-
-  const quickLinks = [
-    { label: 'Services', href: '#services' },
-    { label: 'About', href: '#about' },
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Terms of Service', href: '#terms' }
-  ];
-
-  return (
-    <footer 
-      ref={footerRef}
-      id="contacts"
-      className="bg-brand-primary relative overflow-hidden"
-    >
+  const RSGALogoFooter = () => <a href="/" className="inline-block">
+      <img src="/lovable-uploads/e9f998e2-091a-46b4-a451-f14cc3f4101d.png" alt="RSGA Logo" className="h-8 w-auto" />
+    </a>;
+  const quickLinks = [{
+    label: 'Services',
+    href: '#services'
+  }, {
+    label: 'About',
+    href: '#about'
+  }, {
+    label: 'Privacy Policy',
+    href: '#privacy'
+  }, {
+    label: 'Terms of Service',
+    href: '#terms'
+  }];
+  return <footer ref={footerRef} id="contacts" className="bg-brand-primary relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full opacity-5">
@@ -72,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         </div>
       </div>
 
-      <div className="container-3of4 relative z-10 py-16">
+      <div className="container mx-auto relative z-10 py-[50px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="footer-column opacity-0">
@@ -94,15 +82,9 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
           <div className="footer-column opacity-0">
             <h4 className="text-white font-semibold text-lg mb-6">Quick Links</h4>
             <nav className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative w-fit after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring"
-                >
+              {quickLinks.map((link, index) => <a key={index} href={link.href} className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring">
                   {link.label}
-                </a>
-              ))}
+                </a>)}
             </nav>
           </div>
 
@@ -112,32 +94,21 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-white/60 mt-0.5 flex-shrink-0" />
-                <a 
-                  href={`https://maps.google.com/?q=${encodeURIComponent(contacts.address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm leading-relaxed"
-                >
+                <a href={`https://maps.google.com/?q=${encodeURIComponent(contacts.address)}`} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm leading-relaxed">
                   {contacts.address}
                 </a>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-white/60 flex-shrink-0" />
-                <a 
-                  href={`tel:${contacts.phone}`}
-                  className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm"
-                >
+                <a href={`tel:${contacts.phone}`} className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm">
                   {contacts.phone}
                 </a>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-white/60 flex-shrink-0" />
-                <a 
-                  href={`mailto:${contacts.email}`}
-                  className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm"
-                >
+                <a href={`mailto:${contacts.email}`} className="text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 text-sm">
                   {contacts.email}
                 </a>
               </div>
@@ -150,21 +121,16 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
           </div>
         </div>
 
-      </div>
-
-      {/* Full-width Divider */}
-      <div className="w-full h-px bg-white/30 mt-12"></div>
-      
-      {/* Copyright - constrained width */}
-      <div className="container-3of4 py-8">
-        <div className="text-center">
-          <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
-          </p>
+        {/* Divider */}
+        <div className="mt-12 pt-8">
+          <div className="w-full h-px bg-white/30 mb-8"></div>
+          <div className="text-center">
+            <p className="text-white/60 text-sm">
+              © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
