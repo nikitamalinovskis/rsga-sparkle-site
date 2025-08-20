@@ -43,7 +43,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
 
   const RSGALogoWhite = () => (
     <img 
-      src="/lovable-uploads/4e20188e-fbb8-438f-8286-65ff691a845c.png" 
+      src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" 
       alt="RSGA Logo" 
       className="h-8 w-auto brightness-0 invert"
     />
@@ -96,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                 <a
                   key={index}
                   href={link.href}
-                  className="inline-block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 hover:underline focus-ring"
+                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 link-underline focus-ring"
                 >
                   {link.label}
                 </a>
@@ -149,7 +149,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/30 mt-12 pt-8" style={{ borderWidth: '1px' }}>
+        <div className="border-t border-white/20 mt-12 pt-8">
           <div className="text-center">
             <p className="text-white/60 text-sm">
               © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
