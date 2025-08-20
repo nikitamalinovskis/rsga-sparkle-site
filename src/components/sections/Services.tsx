@@ -8,6 +8,8 @@ interface Service {
   title: string;
   description: string;
   category: string;
+  link?: string;
+  image?: string;
 }
 
 interface ServicesProps {
@@ -43,12 +45,12 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
 
   const getServiceIcon = (id: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
-      'cover': <Shield className="h-6 w-6 text-brand-primary" />,
+      'alternative-cover': <Shield className="h-6 w-6 text-brand-primary" />,
       'hydroseeding': <Leaf className="h-6 w-6 text-brand-primary" />,
-      'deodorant-dust': <CheckCircle className="h-6 w-6 text-brand-primary" />,
-      'sand': <Truck className="h-6 w-6 text-brand-primary" />,
+      'industrial-deodorant-dust': <CheckCircle className="h-6 w-6 text-brand-primary" />,
+      'sale-of-sand': <Truck className="h-6 w-6 text-brand-primary" />,
       'earthworks': <Truck className="h-6 w-6 text-brand-primary" />,
-      'planning': <CheckCircle className="h-6 w-6 text-brand-primary" />
+      'planning-business-development': <CheckCircle className="h-6 w-6 text-brand-primary" />
     };
     return iconMap[id] || <CheckCircle className="h-6 w-6 text-brand-primary" />;
   };
@@ -84,6 +86,18 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
               key={service.id}
               className="service-card card-premium bg-white/80 backdrop-blur-sm border-brand-primary/10 hover:border-brand-primary/30 shadow-lg hover:shadow-2xl group relative overflow-hidden"
             >
+              {/* Service Image */}
+              {service.image && (
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading={index < 3 ? "eager" : "lazy"}
+                  />
+                </div>
+              )}
+
               {/* Card background gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-white via-brand-tint/20 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
@@ -114,7 +128,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
                 </CardDescription>
                 
                 <a 
-                  href="#" 
+                  href={service.link || "#"} 
                   className="inline-flex items-center text-brand-primary hover:text-brand-primary-strong transition-all duration-300 link-underline focus-ring font-medium group-hover:translate-x-2"
                 >
                   Learn more

@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
   const RSGALogoFooter = () => (
     <a href="/" className="inline-block">
       <img 
-        src="/lovable-uploads/e9f998e2-091a-46b4-a451-f14cc3f4101d.png" 
+        src="/rsga_logo_footer.png" 
         alt="RSGA Logo" 
         className="h-8 w-auto"
       />
@@ -52,10 +52,23 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
   );
 
   const quickLinks = [
-    { label: 'Services', href: '#services' },
-    { label: 'About', href: '#about' },
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Terms of Service', href: '#terms' }
+    { label: 'Home', href: '/en' },
+    { label: 'Services', href: '/en/services' },
+    { label: 'Projects', href: '/en/projects' },
+    { label: 'About', href: '/en/about' },
+    { label: 'Contacts', href: '/en/contacts' },
+    { label: 'Blog', href: '/en/blog' },
+    { label: 'Privacy Policy', href: '/en/privacy-policy' },
+    { label: 'Terms of Service', href: '/en/terms-of-service' }
+  ];
+
+  const serviceLinks = [
+    { label: 'Alternative Cover', href: '/en/services/alternative-cover' },
+    { label: 'Hydroseeding', href: '/en/services/hydroseeding' },
+    { label: 'Industrial Deodorant', href: '/en/services/industrial-deodorant-dust' },
+    { label: 'Sale of Sand', href: '/en/services/sale-of-sand' },
+    { label: 'Earthworks', href: '/en/services/earthworks' },
+    { label: 'Planning & Development', href: '/en/services/planning-business-development' }
   ];
 
   return (
@@ -73,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
       </div>
 
       <div className="container-3of4 relative z-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="footer-column opacity-0">
             <div className="mb-6">
@@ -98,7 +111,23 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                 <a
                   key={index}
                   href={link.href}
-                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative w-fit after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring"
+                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative w-fit after:content-[''] after:absolute after:w-0 after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-all after:duration-300 hover:after:w-full hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Services Links */}
+          <div className="footer-column opacity-0">
+            <h4 className="text-white font-semibold text-lg mb-6">Services</h4>
+            <nav className="space-y-3">
+              {serviceLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative w-fit after:content-[''] after:absolute after:w-0 after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-all after:duration-300 hover:after:w-full hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring"
                 >
                   {link.label}
                 </a>
