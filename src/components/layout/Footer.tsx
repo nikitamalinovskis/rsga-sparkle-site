@@ -41,11 +41,11 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
     return () => observer.disconnect();
   }, []);
 
-  const RSGALogoWhite = () => (
+  const RSGALogoFooter = () => (
     <img 
-      src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" 
+      src="/lovable-uploads/e9f998e2-091a-46b4-a451-f14cc3f4101d.png" 
       alt="RSGA Logo" 
-      className="h-8 w-auto brightness-0 invert"
+      className="h-8 w-auto"
     />
   );
 
@@ -75,7 +75,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
           {/* Company Info */}
           <div className="footer-column opacity-0">
             <div className="mb-6">
-              <RSGALogoWhite />
+              <RSGALogoFooter />
             </div>
             <div className="space-y-4">
               <div>
@@ -96,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
                 <a
                   key={index}
                   href={link.href}
-                  className="block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 link-underline focus-ring"
+                  className="inline-block text-white/80 hover:text-[#d9e6f5] transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-white/80 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left focus-ring"
                 >
                   {link.label}
                 </a>
@@ -149,7 +149,8 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/20 mt-12 pt-8">
+        <div className="mt-12 pt-8">
+          <div className="w-full h-px bg-white/30 mb-8"></div>
           <div className="text-center">
             <p className="text-white/60 text-sm">
               © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.

@@ -117,11 +117,12 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
             ))}
           </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="flex flex-col items-center cursor-pointer group">
-              <ChevronDown className="w-6 h-6 text-brand-primary group-hover:animate-pulse transition-all duration-300" />
-            </div>
+        </div>
+        
+        {/* Scroll indicator - positioned at very bottom of hero */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="flex flex-col items-center cursor-pointer group">
+            <ChevronDown className="w-6 h-6 text-brand-primary group-hover:animate-pulse transition-all duration-300" />
           </div>
         </div>
       </div>

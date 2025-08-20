@@ -71,7 +71,7 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
       </div>
 
       <div className="container mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-12">
+        <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
             {title}
           </h2>
@@ -80,7 +80,7 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
           </p>
         </div>
 
-        <div className="max-w-[900px] mx-auto">
+        <div className="max-w-[900px] mx-auto mb-12">
           <div 
             className="relative aspect-video overflow-hidden shadow-2xl group animate-fade-in"
             style={{ 
@@ -132,8 +132,11 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
             )}
           </div>
 
-          {/* Secondary actions */}
-          <div className="flex justify-center mt-8">
+        </div>
+        
+        {/* Secondary actions */}
+        <div className="max-w-[900px] mx-auto">
+          <div className="flex justify-center mt-12">
             <Button
               variant="outline"
               size="lg"
