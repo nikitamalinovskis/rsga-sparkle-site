@@ -80,6 +80,20 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
           </p>
         </div>
 
+        {/* Moved div - between description and video */}
+        <div className="flex items-center justify-center mb-8">
+          <button
+            onClick={() => setIsPlaying(true)}
+            className="group/play relative"
+            aria-label="Play video"
+          >
+            <div className="absolute inset-0 bg-white/20 rounded-full blur-xl animate-pulse" />
+            <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover/play:bg-white group-hover/play:scale-110 shadow-2xl">
+              <Play className="w-8 h-8 md:w-10 md:h-10 text-brand-primary ml-1 transition-colors duration-300" fill="currentColor" />
+            </div>
+          </button>
+        </div>
+
         <div className="max-w-[900px] mx-auto mb-12">
           <div 
             className="relative aspect-video overflow-hidden shadow-2xl group animate-fade-in"
@@ -99,8 +113,13 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
                 
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                
-                {/* Play button */}
+
+                {/* Floating elements */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                    <ExternalLink className="w-5 h-5 text-white" />
+                  </div>
+                </div>
               </>
             ) : (
               <iframe
@@ -115,20 +134,6 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
 
         </div>
 
-        {/* Moved div - between description and button */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <button
-            onClick={() => setIsPlaying(true)}
-            className="group/play relative"
-            aria-label="Play video"
-          >
-            <div className="absolute inset-0 bg-white/20 rounded-full blur-xl animate-pulse" />
-            <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover/play:bg-white group-hover/play:scale-110 shadow-2xl">
-              <Play className="w-8 h-8 md:w-10 md:h-10 text-brand-primary ml-1 transition-colors duration-300" fill="currentColor" />
-            </div>
-          </button>
-        </div>
-        
         {/* Secondary actions */}
         <div className="max-w-[900px] mx-auto">
           <div className="flex justify-center mt-12">
