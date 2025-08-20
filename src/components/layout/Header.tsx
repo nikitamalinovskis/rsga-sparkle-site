@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const updateScrollProgress = () => {
@@ -12,6 +13,7 @@ const Header = () => {
       const winHeightPx = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = scrollPx / winHeightPx;
       setScrollProgress(scrolled * 100);
+      setIsScrolled(scrollPx > 50);
     };
 
     window.addEventListener('scroll', updateScrollProgress);
@@ -25,23 +27,33 @@ const Header = () => {
     { href: '#contacts', label: 'Contacts' },
   ];
 
+  const RSGALogo = () => (
+    <svg width="120" height="32" viewBox="0 0 120 32" className="text-brand-primary">
+      <rect x="0" y="0" width="24" height="24" fill="currentColor" rx="4"/>
+      <text x="28" y="18" fontSize="18" fontWeight="700" fill="currentColor" fontFamily="Inter">RSGA</text>
+      <rect x="4" y="4" width="16" height="16" fill="white" rx="2"/>
+      <text x="6" y="16" fontSize="12" fontWeight="700" fill="currentColor">R</text>
+    </svg>
+  );
+
   return (
     <>
       {/* Scroll Progress Bar */}
       <div 
-        className="scroll-progress"
-        style={{ '--scroll-progress': `${scrollProgress}%` } as React.CSSProperties}
+        className="fixed top-0 left-0 h-1 bg-brand-primary z-50 transition-all duration-100 ease-out"
+        style={{ width: `${scrollProgress}%` }}
       />
       
-      <header className="sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border-subtle">
-        <div className="container mx-auto px-4">
+      <header className={`sticky top-0 z-40 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-sm shadow-lg' 
+          : 'bg-white/90 backdrop-blur-sm'
+      }`}>
+        <div className="container mx-auto">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-brand-primary rounded flex items-center justify-center text-white font-bold text-lg">
-                R
-              </div>
-              <span className="ml-2 text-xl font-semibold text-fg-primary">RSGA</span>
+              <RSGALogo />
             </div>
 
             {/* Desktop Navigation */}
@@ -50,7 +62,7 @@ const Header = () => {
                 <a 
                   key={link.href}
                   href={link.href} 
-                  className="text-fg-secondary hover:text-fg-primary transition-colors link-underline focus-ring"
+                  className="text-fg-secondary hover:text-brand-primary transition-all duration-300 link-underline focus-ring font-medium"
                 >
                   {link.label}
                 </a>
@@ -59,7 +71,10 @@ const Header = () => {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="default" className="focus-ring">
+              <Button 
+                variant="default" 
+                className="focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white shadow-lg hover:shadow-xl transition-all duration-300"
+              >
                 Get a quote
               </Button>
             </div>
@@ -67,7 +82,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md hover:bg-bg-muted focus-ring"
+              className="md:hidden p-2 rounded-md hover:bg-bg-muted focus-ring transition-colors duration-200"
               aria-expanded={isMenuOpen}
               aria-label="Toggle menu"
             >
@@ -76,27 +91,33 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-border-subtle">
+          <div className={`md:hidden overflow-hidden transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${
+            isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="py-4 border-t border-border-subtle">
               <nav className="flex flex-col space-y-4">
-                {navLinks.map((link) => (
+                {navLinks.map((link, index) => (
                   <a 
                     key={link.href}
                     href={link.href} 
-                    className="text-fg-secondary hover:text-fg-primary transition-colors focus-ring px-2 py-1"
+                    className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring px-2 py-1 animate-fade-in"
+                    style={{ animationDelay: `${index * 100}ms` }}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
                   </a>
                 ))}
-                <div className="pt-4">
-                  <Button variant="default" className="w-full focus-ring">
+                <div className="pt-4 animate-fade-in" style={{ animationDelay: '400ms' }}>
+                  <Button 
+                    variant="default" 
+                    className="w-full focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white"
+                  >
                     Get a quote
                   </Button>
                 </div>
               </nav>
             </div>
-          )}
+          </div>
         </div>
       </header>
     </>

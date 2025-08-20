@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 
@@ -13,45 +13,87 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
   const heroRef = useRef<HTMLElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            const elements = entry.target.querySelectorAll('.animate-on-scroll');
+            elements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.add('animate-fade-in');
+              }, index * 200);
+            });
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = heroRef.current?.querySelectorAll('.animate-on-scroll');
-    elements?.forEach((el) => observer.observe(el));
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
 
     return () => observer.disconnect();
   }, []);
 
+  const FloatingShape = ({ className, delay = 0 }: { className: string; delay?: number }) => (
+    <div 
+      className={`absolute opacity-30 ${delay ? 'floating-delayed' : 'floating'} ${className}`}
+      style={{ animationDelay: `${delay}s` }}
+    >
+      <svg width="100" height="100" viewBox="0 0 100 100" className="text-brand-primary">
+        <circle cx="50" cy="50" r="30" fill="currentColor" fillOpacity="0.1" />
+        <circle cx="50" cy="50" r="20" fill="currentColor" fillOpacity="0.2" />
+      </svg>
+    </div>
+  );
+
   return (
     <section 
       ref={heroRef}
-      className="relative py-20 md:py-32 bg-gradient-hero overflow-hidden"
+      className="relative min-h-[90vh] flex items-center bg-gradient-hero overflow-hidden"
     >
-      {/* Decorative Elements */}
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-tint/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 -left-20 w-60 h-60 bg-brand-tint/10 rounded-full blur-3xl"></div>
+        {/* Large gradient orbs */}
+        <div 
+          className="absolute -top-20 -right-20 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+        />
+        <div 
+          className="absolute top-1/2 -left-32 w-80 h-80 bg-brand-primary/8 rounded-full blur-3xl"
+          style={{ transform: `translateY(${scrollY * 0.15}px)` }}
+        />
+        
+        {/* Floating shapes */}
+        <FloatingShape className="top-20 right-32 w-24 h-24" />
+        <FloatingShape className="bottom-32 left-24 w-32 h-32" delay={3} />
+        <FloatingShape className="top-40 left-1/3 w-20 h-20" delay={1.5} />
+        
+        {/* Abstract environmental pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-brand-primary/2 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Title */}
-          <h1 className="animate-on-scroll text-4xl md:text-5xl lg:text-6xl font-bold text-fg-primary mb-6 leading-tight">
-            {title}
+          <h1 className="animate-on-scroll text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-fg-primary mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-fg-primary via-brand-primary to-fg-primary bg-clip-text text-transparent">
+              {title}
+            </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="animate-on-scroll text-lg md:text-xl text-fg-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="animate-on-scroll text-lg md:text-xl lg:text-2xl text-fg-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
 
@@ -62,13 +104,25 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
                 key={index}
                 variant={index === 0 ? "default" : "secondary"}
                 size="lg"
-                className="hover-lift focus-ring min-w-[160px]"
+                className={`min-w-[180px] transition-all duration-500 ${
+                  index === 0 
+                    ? "bg-brand-primary hover:bg-brand-primary-strong text-white shadow-lg hover:shadow-xl hover:scale-105" 
+                    : "bg-white/10 backdrop-blur-sm border-brand-primary/20 hover:bg-white/20 hover:border-brand-primary/40 hover:scale-105"
+                } focus-ring animate-scale-in`}
+                style={{ animationDelay: `${index * 200 + 800}ms` }}
               >
                 {button.label}
                 {index === 0 && <ArrowRight className="ml-2 h-4 w-4" />}
                 {index === 1 && <Play className="ml-2 h-4 w-4" />}
               </Button>
             ))}
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-brand-primary/30 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-brand-primary rounded-full mt-2 animate-pulse" />
+            </div>
           </div>
         </div>
       </div>

@@ -12,7 +12,13 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: 'var(--container-pad-x, 1rem)',
+			padding: {
+				DEFAULT: 'var(--container-pad-x-mobile, 1rem)',
+				sm: 'var(--container-pad-x-mobile, 1rem)',
+				md: 'var(--container-pad-x-tablet, 1.5rem)',
+				lg: 'var(--container-pad-x, 3rem)',
+				xl: 'var(--container-pad-x, 3rem)',
+			},
 			screens: {
 				'2xl': 'var(--container-max, 75rem)'
 			}

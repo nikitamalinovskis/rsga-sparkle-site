@@ -12,10 +12,10 @@
     --background: 0 0% 100%;
     --foreground: 205 25% 11%;
     
-    /* Brand Colors */
-    --brand-primary: 226 100% 50%;
-    --brand-primary-strong: 234 100% 42%;
-    --brand-tint: 226 100% 96%;
+    /* Brand Colors - RSGA Blue #05376c */
+    --brand-primary: 208 92% 22%;
+    --brand-primary-strong: 208 92% 18%;
+    --brand-tint: 208 92% 96%;
     
     /* Semantic Colors */
     --bg-default: 0 0% 100%;
@@ -28,8 +28,8 @@
     --border-subtle: 210 14% 89%;
     --border-default: 210 16% 82%;
     
-    --link-default: 226 100% 50%;
-    --link-hover: 234 100% 42%;
+    --link-default: 208 92% 22%;
+    --link-hover: 208 92% 18%;
     
     /* Status Colors */
     --status-success: 122 39% 49%;
@@ -91,7 +91,9 @@
     
     /* Layout */
     --container-max: 75rem;
-    --container-pad-x: 1rem;
+    --container-pad-x: 3rem; /* 48px desktop */
+    --container-pad-x-tablet: 1.5rem; /* 24px tablet */
+    --container-pad-x-mobile: 1rem; /* 16px mobile */
     --column-gap: 1.5rem;
     
     --radius: var(--radius-md);
@@ -175,13 +177,51 @@
     @apply scale-x-100 origin-left;
   }
   
-  /* Gradient backgrounds */
+  /* Premium gradient backgrounds */
   .bg-gradient-hero {
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(var(--brand-primary) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--brand-primary) / 0.12) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(var(--bg-default)) 0%, hsl(var(--brand-tint)) 100%);
+  }
+
+  .bg-gradient-cta {
+    background: linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-primary-strong)) 100%);
+  }
+
+  .bg-gradient-endorsements {
     background: linear-gradient(135deg, hsl(var(--bg-default)) 0%, hsl(var(--brand-tint)) 100%);
   }
-  
-  .bg-gradient-cta {
-    background: linear-gradient(135deg, hsl(var(--brand-tint)) 0%, hsl(var(--brand-primary) / 0.1) 100%);
+
+  .bg-gradient-services {
+    background: 
+      linear-gradient(135deg, hsl(var(--bg-default)) 0%, hsl(var(--bg-subtle)) 100%),
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="hsl(208 92% 22%)" fill-opacity="0.02"/><circle cx="80" cy="80" r="1" fill="hsl(208 92% 22%)" fill-opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  }
+
+  /* Floating animations */
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  .floating-delayed {
+    animation: floating 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+
+  /* Parallax elements */
+  .parallax-slow {
+    transform: translateY(var(--scroll-y, 0px));
+  }
+
+  /* Card hover effects */
+  .card-premium {
+    @apply transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-xl;
+  }
+
+  .card-premium:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(5, 55, 108, 0.15);
   }
   
   /* Progress bar */
@@ -226,6 +266,56 @@
   to { 
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotateY(-90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-custom {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.05);
+    opacity: 0.8;
   }
 }
 
