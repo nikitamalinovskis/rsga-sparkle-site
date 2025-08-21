@@ -32,9 +32,6 @@ const Header = () => {
     label: 'Services',
     hasDropdown: true
   }, {
-    href: '/en/projects',
-    label: 'Projects'
-  }, {
     href: '/en/about',
     label: 'About'
   }, {

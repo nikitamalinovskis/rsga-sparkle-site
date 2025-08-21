@@ -53,7 +53,6 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
 
   const quickLinks = [
     { label: 'Services', href: '/en/services' },
-    { label: 'Projects', href: '/en/projects' },
     { label: 'About', href: '/en/about' },
     { label: 'Contacts', href: '/en/contacts' },
     { label: 'Blog', href: '/en/blog' },
