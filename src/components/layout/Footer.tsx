@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { MapPin, Phone, Mail, FileText } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 interface ContactInfo {
   company: string;
@@ -14,8 +15,108 @@ interface FooterProps {
   contacts: ContactInfo;
 }
 
+interface Translations {
+  companyName: string;
+  registrationLine: string;
+  description: string;
+  quickLinksTitle: string;
+  servicesTitle: string;
+  contactTitle: string;
+  quickLinks: Array<{ label: string; href: string; }>;
+  services: Array<{ label: string; href: string; }>;
+}
+
 const Footer: React.FC<FooterProps> = ({ contacts }) => {
   const footerRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+  
+  // Detect language from current route
+  const getLanguage = (): 'lv' | 'en' | 'ru' => {
+    const path = location.pathname;
+    if (path.startsWith('/en')) return 'en';
+    if (path.startsWith('/ru')) return 'ru';
+    return 'lv'; // default
+  };
+
+  const language = getLanguage();
+
+  // Translation objects
+  const translations: Record<'lv' | 'en' | 'ru', Translations> = {
+    lv: {
+      companyName: 'SIA RSGA',
+      registrationLine: 'Reģistrācijas Nr.: 40003811272',
+      description: 'Vadošais inovatīvu vides risinājumu sniedzējs ilgtspējīgai atkritumu apsaimniekošanai visā Latvijā un Eiropā.',
+      quickLinksTitle: 'Ātrās saites',
+      servicesTitle: 'Pakalpojumi',
+      contactTitle: 'Kontaktinformācija',
+      quickLinks: [
+        { label: 'Pakalpojumi', href: '/services' },
+        { label: 'Par mums', href: '/about' },
+        { label: 'Kontakti', href: '/contacts' },
+        { label: 'Blogs', href: '/blog' },
+        { label: 'Privātuma politika', href: '/privacy-policy' },
+        { label: 'Lietošanas noteikumi', href: '/terms-of-service' }
+      ],
+      services: [
+        { label: 'Dienas un ilgtermiņa pārklājumi', href: '/services/alternative-cover' },
+        { label: 'Hidrosēšana', href: '/services/hydroseeding' },
+        { label: 'Industriālie dezodoranti un putekļu samazināšana', href: '/services/industrial-deodorant-dust' },
+        { label: 'Smilšu tirdzniecība', href: '/services/sale-of-sand' },
+        { label: 'Zemes darbi', href: '/services/earthworks' },
+        { label: 'Plānošana un attīstība', href: '/services/planning-business-development' }
+      ]
+    },
+    en: {
+      companyName: 'SIA RSGA',
+      registrationLine: 'Registration No: 40003811272',
+      description: 'Leading provider of innovative environmental solutions for sustainable waste management across Latvia and Europe.',
+      quickLinksTitle: 'Quick Links',
+      servicesTitle: 'Services',
+      contactTitle: 'Contact Information',
+      quickLinks: [
+        { label: 'Services', href: '/en/services' },
+        { label: 'About', href: '/en/about' },
+        { label: 'Contacts', href: '/en/contacts' },
+        { label: 'Blog', href: '/en/blog' },
+        { label: 'Privacy Policy', href: '/en/privacy-policy' },
+        { label: 'Terms of Service', href: '/en/terms-of-service' }
+      ],
+      services: [
+        { label: 'Alternative Cover', href: '/en/services/alternative-cover' },
+        { label: 'Hydroseeding', href: '/en/services/hydroseeding' },
+        { label: 'Industrial Deodorant', href: '/en/services/industrial-deodorant-dust' },
+        { label: 'Sale of Sand', href: '/en/services/sale-of-sand' },
+        { label: 'Earthworks', href: '/en/services/earthworks' },
+        { label: 'Planning & Development', href: '/en/services/planning-business-development' }
+      ]
+    },
+    ru: {
+      companyName: 'ООО RSGA',
+      registrationLine: 'Регистрационный №: 40003811272',
+      description: 'Ведущий поставщик инновационных экологических решений для устойчивого управления отходами в Латвии и Европе.',
+      quickLinksTitle: 'Быстрые ссылки',
+      servicesTitle: 'Услуги',
+      contactTitle: 'Контактная информация',
+      quickLinks: [
+        { label: 'Услуги', href: '/ru/services' },
+        { label: 'О компании', href: '/ru/about' },
+        { label: 'Контакты', href: '/ru/contacts' },
+        { label: 'Блог', href: '/ru/blog' },
+        { label: 'Политика конфиденциальности', href: '/ru/privacy-policy' },
+        { label: 'Условия использования', href: '/ru/terms-of-service' }
+      ],
+      services: [
+        { label: 'Ежедневные и долгосрочные покрытия', href: '/ru/services/alternative-cover' },
+        { label: 'Гидропосев', href: '/ru/services/hydroseeding' },
+        { label: 'Промышленные дезодоранты и пылеподавление', href: '/ru/services/industrial-deodorant-dust' },
+        { label: 'Продажа песка', href: '/ru/services/sale-of-sand' },
+        { label: 'Земляные работы', href: '/ru/services/earthworks' },
+        { label: 'Планирование и развитие', href: '/ru/services/planning-business-development' }
+      ]
+    }
+  };
+
+  const t = translations[language];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,24 +152,6 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
     </a>
   );
 
-  const quickLinks = [
-    { label: 'Services', href: '/en/services' },
-    { label: 'About', href: '/en/about' },
-    { label: 'Contacts', href: '/en/contacts' },
-    { label: 'Blog', href: '/en/blog' },
-    { label: 'Privacy Policy', href: '/en/privacy-policy' },
-    { label: 'Terms of Service', href: '/en/terms-of-service' }
-  ];
-
-  const serviceLinks = [
-    { label: 'Alternative Cover', href: '/en/services/alternative-cover' },
-    { label: 'Hydroseeding', href: '/en/services/hydroseeding' },
-    { label: 'Industrial Deodorant', href: '/en/services/industrial-deodorant-dust' },
-    { label: 'Sale of Sand', href: '/en/services/sale-of-sand' },
-    { label: 'Earthworks', href: '/en/services/earthworks' },
-    { label: 'Planning & Development', href: '/en/services/planning-business-development' }
-  ];
-
   return (
     <footer 
       ref={footerRef}
@@ -92,20 +175,20 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
             </div>
             <div className="space-y-4">
               <div>
-                <h3 className="text-white font-semibold text-lg mb-2">{contacts.company}</h3>
-                <p className="text-white/80 text-sm">Registration No: {contacts.registration_no}</p>
+                <h3 className="text-white font-semibold text-lg mb-2">{t.companyName}</h3>
+                <p className="text-white/80 text-sm">{t.registrationLine}</p>
               </div>
               <p className="text-white/90 leading-relaxed">
-                Leading provider of innovative environmental solutions for sustainable waste management across Latvia and Europe.
+                {t.description}
               </p>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="footer-column opacity-0">
-            <h4 className="text-white font-semibold text-lg mb-6">Quick Links</h4>
+            <h4 className="text-white font-semibold text-lg mb-6">{t.quickLinksTitle}</h4>
             <nav className="space-y-3">
-              {quickLinks.map((link, index) => (
+              {t.quickLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
@@ -119,9 +202,9 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
 
           {/* Services Links */}
           <div className="footer-column opacity-0">
-            <h4 className="text-white font-semibold text-lg mb-6">Services</h4>
+            <h4 className="text-white font-semibold text-lg mb-6">{t.servicesTitle}</h4>
             <nav className="space-y-3">
-              {serviceLinks.map((link, index) => (
+              {t.services.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
@@ -135,7 +218,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
 
           {/* Contact Information */}
           <div className="footer-column opacity-0">
-            <h4 className="text-white font-semibold text-lg mb-6">Contact Information</h4>
+            <h4 className="text-white font-semibold text-lg mb-6">{t.contactTitle}</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-white/60 mt-0.5 flex-shrink-0" />
@@ -186,7 +269,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
       <div className="container mx-auto px-4 lg:px-6 py-8">
         <div className="text-center">
           <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
+            © {new Date().getFullYear()} {t.companyName} ({t.registrationLine}). All rights reserved.
           </p>
         </div>
       </div>
