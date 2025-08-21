@@ -143,7 +143,7 @@ const Header = () => {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4 ml-8">
               <Button asChild variant="default" className="focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <Link to={isEnglish ? "/en/contacts" : "/contacts"}>Contact us</Link>
               </Button>
