@@ -64,6 +64,15 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Hero Background Image - Subtle landscape illustration */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+          style={{ 
+            backgroundImage: 'url(/lovable-uploads/2edbc74c-48d5-40db-b417-981c9566080b.png)',
+            transform: `translateY(${scrollY * 0.05}px)` 
+          }}
+        />
+        
         {/* Large gradient orbs */}
         <div 
           className="absolute -top-20 -right-20 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"
