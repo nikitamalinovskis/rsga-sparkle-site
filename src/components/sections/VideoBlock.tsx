@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Play, ExternalLink } from 'lucide-react';
 
@@ -12,6 +13,27 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+
+  // Get current language from route
+  const getCurrentLanguage = () => {
+    if (location.pathname.startsWith('/en')) return 'en';
+    if (location.pathname.startsWith('/ru')) return 'ru';
+    return 'lv'; // default to Latvian
+  };
+
+  // Get localized text
+  const getLocalizedText = (key: string) => {
+    const language = getCurrentLanguage();
+    const translations = {
+      openOnYoutube: {
+        lv: 'Atvērt YouTube',
+        en: 'Open on YouTube', 
+        ru: 'Открыть на YouTube'
+      }
+    };
+    return translations[key as keyof typeof translations]?.[language] || translations[key as keyof typeof translations]?.lv;
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -144,7 +166,7 @@ const VideoBlock: React.FC<VideoBlockProps> = ({ title, description, url }) => {
               onClick={() => window.open(url, '_blank')}
             >
               <ExternalLink className="mr-2 h-4 w-4" />
-              Open on YouTube
+              {getLocalizedText('openOnYoutube')}
             </Button>
           </div>
         </div>
