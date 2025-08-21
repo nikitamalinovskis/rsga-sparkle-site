@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
@@ -13,6 +14,27 @@ interface CTAProps {
 const CTA: React.FC<CTAProps> = ({ text, button }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollY, setScrollY] = useState(0);
+  const location = useLocation();
+
+  // Get current language from route
+  const getCurrentLanguage = () => {
+    if (location.pathname.startsWith('/en')) return 'en';
+    if (location.pathname.startsWith('/ru')) return 'ru';
+    return 'lv'; // default to Latvian
+  };
+
+  // Get localized text
+  const getLocalizedText = (key: string) => {
+    const language = getCurrentLanguage();
+    const translations = {
+      readyToTransform: {
+        lv: 'Gatavi transformēt savu atkritumu apsaimniekošanas pieeju?',
+        en: 'Ready to transform your waste management approach?',
+        ru: 'Готовы изменить свой подход к управлению отходами?'
+      }
+    };
+    return translations[key as keyof typeof translations]?.[language] || translations[key as keyof typeof translations]?.lv;
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -111,7 +133,7 @@ const CTA: React.FC<CTAProps> = ({ text, button }) => {
 
           {/* Secondary text */}
           <p className="mt-6 text-white/80 text-lg">
-            Ready to transform your waste management approach?
+            {getLocalizedText('readyToTransform')}
           </p>
         </div>
       </div>
