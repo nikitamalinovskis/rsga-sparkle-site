@@ -4,12 +4,24 @@ interface SEOProps {
   title: string;
   description: string;
   canonical?: string;
+  noIndex?: boolean;
 }
 
-const SEO = ({ title, description, canonical }: SEOProps) => {
+const SEO = ({ title, description, canonical, noIndex }: SEOProps) => {
   useEffect(() => {
     // Update document title
     document.title = title;
+    
+    // Update robots meta tag for noindex
+    let robotsTag = document.querySelector('meta[name="robots"]');
+    if (robotsTag) {
+      robotsTag.setAttribute('content', noIndex ? 'noindex,nofollow' : 'index,follow');
+    } else {
+      robotsTag = document.createElement('meta');
+      robotsTag.setAttribute('name', 'robots');
+      robotsTag.setAttribute('content', noIndex ? 'noindex,nofollow' : 'index,follow');
+      document.head.appendChild(robotsTag);
+    }
     
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -78,7 +90,7 @@ const SEO = ({ title, description, canonical }: SEOProps) => {
         document.head.appendChild(canonicalLink);
       }
     }
-  }, [title, description, canonical]);
+  }, [title, description, canonical, noIndex]);
 
   return null;
 };

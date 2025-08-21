@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import { 
   FileText, 
   BookOpen, 
@@ -25,6 +26,7 @@ interface DashboardStats {
 }
 
 const AdminDashboard: React.FC = () => {
+  const navigate = useNavigate();
   const [stats, setStats] = useState<DashboardStats>({
     pages: 0,
     blogPosts: 0,
@@ -257,24 +259,24 @@ const AdminDashboard: React.FC = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-3">
-              <Button className="w-full justify-start" variant="outline">
-                <FileText className="h-4 w-4 mr-2" />
-                Create New Page
-              </Button>
-              <Button className="w-full justify-start" variant="outline">
-                <BookOpen className="h-4 w-4 mr-2" />
-                Write Blog Post
-              </Button>
-              <Button className="w-full justify-start" variant="outline">
-                <Users className="h-4 w-4 mr-2" />
-                Manage Services
-              </Button>
-              <Button className="w-full justify-start" variant="outline">
-                <Mail className="h-4 w-4 mr-2" />
-                Check New Contacts
-              </Button>
-            </div>
+        <div className="space-y-4">
+          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/pages')}>
+            <FileText className="h-4 w-4 mr-2" />
+            Create New Page
+          </Button>
+          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/blog')}>
+            <BookOpen className="h-4 w-4 mr-2" />
+            Write Blog Post
+          </Button>
+          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/services')}>
+            <Users className="h-4 w-4 mr-2" />
+            Manage Services
+          </Button>
+          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/contacts')}>
+            <Mail className="h-4 w-4 mr-2" />
+            Check New Contacts
+          </Button>
+        </div>
           </CardContent>
         </Card>
       </div>

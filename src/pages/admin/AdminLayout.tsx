@@ -18,6 +18,7 @@ import {
   Bell
 } from 'lucide-react';
 import SEO from '@/components/SEO';
+import { StatusBadges } from '@/components/admin/StatusBadges';
 import { useToast } from '@/hooks/use-toast';
 
 interface AdminLayoutProps {
@@ -64,6 +65,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ onLogout, children }) => {
       <SEO
         title="Admin Panel - RSGA"
         description="Content management system for RSGA website"
+        noIndex={true}
       />
       <div className="min-h-screen bg-bg-subtle">
         {/* Header */}
@@ -81,10 +83,13 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ onLogout, children }) => {
               
               <div className="flex items-center gap-3">
                 <img 
-                  src="/public/rsga_logo_footer.png" 
+                  src="/rsga_logo_footer.png" 
                   alt="RSGA" 
-                  className="h-8 cursor-pointer"
+                  className="h-8 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => navigate('/admin')}
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder.svg';
+                  }}
                 />
                 <Badge variant="secondary" className="hidden sm:inline-flex">
                   Admin Panel
@@ -92,31 +97,32 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ onLogout, children }) => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-fg-muted h-4 w-4" />
-                <Input
-                  placeholder="Search content..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 w-64 hidden md:block"
-                />
+              <div className="flex items-center gap-4">
+                <StatusBadges />
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-fg-muted h-4 w-4" />
+                  <Input
+                    placeholder="Search content..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9 w-64 hidden md:block"
+                  />
+                </div>
+                
+                <Button variant="ghost" size="sm">
+                  <Bell className="h-5 w-5" />
+                </Button>
+                
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={handleLogout}
+                  className="text-fg-secondary hover:text-destructive"
+                >
+                  <LogOut className="h-5 w-5" />
+                  <span className="hidden sm:inline ml-2">Logout</span>
+                </Button>
               </div>
-              
-              <Button variant="ghost" size="sm">
-                <Bell className="h-5 w-5" />
-              </Button>
-              
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={handleLogout}
-                className="text-fg-secondary hover:text-destructive"
-              >
-                <LogOut className="h-5 w-5" />
-                <span className="hidden sm:inline ml-2">Logout</span>
-              </Button>
-            </div>
           </div>
         </header>
 
@@ -127,29 +133,55 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ onLogout, children }) => {
             bg-white border-r border-border-subtle transition-all duration-300 overflow-hidden
             ${sidebarOpen ? '' : 'md:overflow-visible'}
           `}>
-            <nav className="p-4 space-y-2">
-              {navigation.map((item) => {
-                const Icon = item.icon;
-                const isActive = isActivePath(item.href);
-                
-                return (
-                  <Button
-                    key={item.name}
-                    variant={isActive ? "default" : "ghost"}
-                    className={`
-                      w-full justify-start gap-3 h-10
-                      ${isActive ? 'bg-brand-primary text-white' : 'hover:bg-bg-muted'}
-                      ${!sidebarOpen ? 'md:justify-center md:px-0' : ''}
-                    `}
-                    onClick={() => navigate(item.href)}
-                  >
-                    <Icon className="h-5 w-5" />
-                    <span className={sidebarOpen ? 'block' : 'hidden md:hidden'}>
-                      {item.name}
-                    </span>
-                  </Button>
-                );
-              })}
+            <nav className="p-4">
+              <div className="space-y-1 border-b border-border-subtle pb-3 mb-3">
+                {navigation.slice(0, 4).map((item) => {
+                  const Icon = item.icon;
+                  const isActive = isActivePath(item.href);
+                  
+                  return (
+                    <Button
+                      key={item.name}
+                      variant={isActive ? "default" : "ghost"}
+                      className={`
+                        w-full justify-start gap-3 h-10
+                        ${isActive ? 'bg-brand-primary text-white' : 'hover:bg-bg-muted'}
+                        ${!sidebarOpen ? 'md:justify-center md:px-0' : ''}
+                      `}
+                      onClick={() => navigate(item.href)}
+                    >
+                      <Icon className="h-5 w-5" />
+                      <span className={sidebarOpen ? 'block' : 'hidden md:hidden'}>
+                        {item.name}
+                      </span>
+                    </Button>
+                  );
+                })}
+              </div>
+              <div className="space-y-1">
+                {navigation.slice(4).map((item) => {
+                  const Icon = item.icon;
+                  const isActive = isActivePath(item.href);
+                  
+                  return (
+                    <Button
+                      key={item.name}
+                      variant={isActive ? "default" : "ghost"}
+                      className={`
+                        w-full justify-start gap-3 h-10
+                        ${isActive ? 'bg-brand-primary text-white' : 'hover:bg-bg-muted'}
+                        ${!sidebarOpen ? 'md:justify-center md:px-0' : ''}
+                      `}
+                      onClick={() => navigate(item.href)}
+                    >
+                      <Icon className="h-5 w-5" />
+                      <span className={sidebarOpen ? 'block' : 'hidden md:hidden'}>
+                        {item.name}
+                      </span>
+                    </Button>
+                  );
+                })}
+              </div>
             </nav>
           </aside>
 

@@ -48,14 +48,18 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
       <SEO
         title="Admin Login - RSGA"
         description="Admin panel login for RSGA website management"
+        noIndex={true}
       />
       <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
             <img 
-              src="/public/rsga_logo_footer.png" 
+              src="/rsga_logo_footer.png" 
               alt="RSGA" 
               className="h-12 mx-auto mb-4"
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.svg';
+              }}
             />
             <CardTitle className="text-2xl font-bold text-brand-primary">
               RSGA Admin Panel
