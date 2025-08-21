@@ -171,17 +171,17 @@
     }
   }
 
-  /* Animations */
+  /* Animations - Slower and smoother */
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 1.2s ease-out forwards;
   }
   
   .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
+    animation: slideUp 1.2s ease-out forwards;
   }
   
   .animate-scale-in {
-    animation: scaleIn 0.4s ease-out forwards;
+    animation: scaleIn 0.8s ease-out forwards;
   }
   
   /* Prevent blinking by setting initial states */
@@ -204,7 +204,7 @@
   body:not(.preload) .animate-stagger {
     opacity: 1;
     transform: translateY(0);
-    animation: fadeSlideUp 0.6s ease-out forwards;
+    animation: fadeSlideUp 1.2s ease-out forwards;
   }
   
   /* Ensure elements don't animate during preload */

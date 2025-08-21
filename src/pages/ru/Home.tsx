@@ -24,7 +24,7 @@ const pageData = {
       id: "alternative-cover",
       title: "Альтернативное покрытие",
       description: "Современная замена почвенного покрытия, снижающая затраты и логистику, соответствующая требованиям ЕС.",
-      category: "Основные",
+      category: "Core",
       link: "/ru/services/alternative-cover",
       image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
     },
@@ -32,7 +32,7 @@ const pageData = {
       id: "hydroseeding",
       title: "Гидропосев",
       description: "Быстрый и экономичный контроль эрозии и создание растительности на склонах и участках.",
-      category: "Основные",
+      category: "Core",
       link: "/ru/services/hydroseeding",
       image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png"
     },
@@ -40,7 +40,7 @@ const pageData = {
       id: "industrial-deodorant-dust",
       title: "Промышленный дезодорант",
       description: "Устранение запахов и подавление пыли для полигонов, дорог и промышленных зон.",
-      category: "Основные",
+      category: "Core",
       link: "/ru/services/industrial-deodorant-dust",
       image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png"
     },
@@ -48,7 +48,7 @@ const pageData = {
       id: "sale-of-sand",
       title: "Торговля песком",
       description: "Надежные поставки для строительных и промышленных нужд.",
-      category: "Дополнительные",
+      category: "Additional",
       link: "/ru/services/sale-of-sand",
       image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png"
     },
@@ -56,7 +56,7 @@ const pageData = {
       id: "earthworks",
       title: "Земляные работы",
       description: "Выемка грунта, планировка, подготовка участков для инфраструктуры и строительства.",
-      category: "Дополнительные",
+      category: "Additional",
       link: "/ru/services/earthworks",
       image: "/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png"
     },
@@ -64,7 +64,7 @@ const pageData = {
       id: "planning-business-development",
       title: "Планирование и развитие",
       description: "Консультации по устойчивому управлению полигонами, соответствию требованиям и развитию.",
-      category: "Дополнительные",
+      category: "Additional",
       link: "/ru/services/planning-business-development",
       image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png"
     }

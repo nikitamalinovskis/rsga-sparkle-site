@@ -150,6 +150,30 @@ const Blog = () => {
             </div>
           </div>
         </section>
+        
+        {/* Newsletter Signup */}
+        <section className="py-20 bg-bg-subtle">
+          <div className="container-3of4">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-fg-primary mb-6">
+                Pierakstīties jaunumiem
+              </h2>
+              <p className="text-lg text-fg-secondary mb-8">
+                Saņemiet jaunākās ziņas un ieskatus vides risinājumu jomā
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Jūsu e-pasts"
+                  className="flex-1 px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
+                />
+                <Button className="bg-brand-primary hover:bg-brand-primary-strong">
+                  Pierakstīties
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       
       <Footer contacts={contacts} />

@@ -2,10 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Leaf, Truck, Droplets, Wrench, Building, Users } from 'lucide-react';
+import Services from '@/components/sections/Services';
 import SEO from '@/components/SEO';
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const contacts = {
   company: "SIA RSGA",
@@ -16,145 +23,93 @@ const contacts = {
   fax: "+371 67 32 56 24"
 };
 
-const services = [
+const servicesData = [
   {
-    id: 'alternative-cover',
-    icon: Leaf,
-    title: 'Альтернативное покрытие',
-    description: 'Экологичные решения для ежедневного покрытия свалок, соответствующие требованиям ЕС.',
-    image: '/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png',
-    link: '/ru/services/alternative-cover'
+    id: "alternative-cover",
+    title: "Альтернативное покрытие",
+    description: "Современная замена почвенного покрытия, снижающая затраты и логистику, соответствующая требованиям ЕС.",
+    category: "Core",
+    link: "/ru/services/alternative-cover",
+    image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
   },
   {
-    id: 'hydroseeding',
-    icon: Droplets,
-    title: 'Гидропосев',
-    description: 'Быстрое и эффективное восстановление растительности на крупных территориях.',
-    image: '/lovable-uploads/d81a5f15-b1e3-4677-93eb-a1dcc3d6e0f3.png',
-    link: '/ru/services/hydroseeding'
+    id: "hydroseeding",
+    title: "Гидропосев",
+    description: "Быстрый и экономичный контроль эрозии и создание растительности на склонах и участках.",
+    category: "Core",
+    link: "/ru/services/hydroseeding",
+    image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png"
   },
   {
-    id: 'deodorant-dust',
-    icon: Truck,
-    title: 'Промышленный дезодорант',
-    description: 'Специализированные средства контроля запахов и пыли для промышленных объектов.',
-    image: '/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png',
-    link: '/ru/services/industrial-deodorant-dust'
+    id: "industrial-deodorant-dust",
+    title: "Промышленный дезодорант",
+    description: "Устранение запахов и подавление пыли для полигонов, дорог и промышленных зон.",
+    category: "Core",
+    link: "/ru/services/industrial-deodorant-dust",
+    image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png"
   },
   {
-    id: 'sand-sale',
-    icon: Building,
-    title: 'Торговля песком',
-    description: 'Высококачественный песок для строительных и инженерных проектов.',
-    image: '/lovable-uploads/249cb742-4a2b-469e-b6b0-e0da82093c55.png',
-    link: '/ru/services/sale-of-sand'
+    id: "sale-of-sand",
+    title: "Торговля песком",
+    description: "Надежные поставки для строительных и промышленных нужд.",
+    category: "Additional",
+    link: "/ru/services/sale-of-sand",
+    image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png"
   },
   {
-    id: 'earthworks',
-    icon: Wrench,
-    title: 'Земляные работы',
-    description: 'Комплексные услуги по земляным работам для строительных и экологических проектов.',
-    image: '/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png',
-    link: '/ru/services/earthworks'
+    id: "earthworks",
+    title: "Земляные работы",
+    description: "Выемка грунта, планировка, подготовка участков для инфраструктуры и строительства.",
+    category: "Additional",
+    link: "/ru/services/earthworks",
+    image: "/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png"
   },
   {
-    id: 'planning',
-    icon: Users,
-    title: 'Планирование и развитие',
-    description: 'Стратегическое планирование и консультации по развитию экологического бизнеса.',
-    image: '/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png',
-    link: '/ru/services/planning-business-development'
+    id: "planning-business-development",
+    title: "Планирование и развитие",
+    description: "Консультации по устойчивому управлению полигонами, соответствию требованиям и развитию.",
+    category: "Additional",
+    link: "/ru/services/planning-business-development",
+    image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png"
   }
 ];
 
-const Services = () => {
+const RuServices = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Услуги по управлению отходами | Полигоны, Гидропосев, Консалтинг"
-        description="Полный спектр услуг: покрытия полигонов, дезодоранты и пылеподавление, гидропосев, продажа песка, земляные работы и бизнес-консалтинг."
+        title="Услуги RSGA | Современные экологические решения для управления отходами"
+        description="Полный спектр услуг RSGA: альтернативные покрытия полигонов, гидропосев, промышленные дезодоранты, земляные работы и консультационные услуги."
         canonical="https://rsga.lv/ru/services"
       />
       <Header />
       
       <main>
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-hero">
+        {/* Breadcrumbs */}
+        <section className="py-6 bg-bg-subtle">
           <div className="container-3of4">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl lg:text-5xl font-bold text-fg-primary mb-6">
-                Наши услуги
-              </h1>
-              <p className="text-xl text-fg-secondary leading-relaxed">
-                Комплексные экологические решения для промышленности и строительства
-              </p>
-            </div>
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/ru">🏠</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Услуги</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
           </div>
         </section>
-
-        {/* Services Grid */}
-        <section className="py-20">
-          <div className="container-3of4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <Card key={service.id} className="group cursor-pointer card-premium hover:shadow-lg transition-all duration-300">
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  </div>
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <service.icon className="h-6 w-6 text-brand-primary" />
-                      <CardTitle className="text-lg">{service.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-fg-secondary mb-4 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <Button 
-                      asChild 
-                      variant="outline" 
-                      className="w-full group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary transition-colors"
-                    >
-                      <Link to={service.link} className="flex items-center justify-center gap-2">
-                        Подробнее
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-bg-subtle">
-          <div className="container-3of4">
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl font-bold text-fg-primary mb-6">
-                Готовы начать ваш проект?
-              </h2>
-              <p className="text-lg text-fg-secondary mb-8">
-                Свяжитесь с нами для консультации по вашим экологическим потребностям
-              </p>
-              <Button asChild size="lg" className="bg-brand-primary hover:bg-brand-primary-strong">
-                <Link to="/ru/contacts">Связаться с нами</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        
+        <Services services={servicesData} />
       </main>
-
+      
       <Footer contacts={contacts} />
     </div>
   );
 };
 
-export default Services;
+export default RuServices;

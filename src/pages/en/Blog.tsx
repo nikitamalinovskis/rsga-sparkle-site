@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, User, ArrowRight, Shield, Droplets, Leaf } from 'lucide-react';
+import { Calendar, User, ArrowRight, Shield, Droplets, Leaf, ChevronRight } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 const contacts = {
@@ -70,6 +70,15 @@ const Blog = () => {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-hero">
           <div className="container-3of4">
+            {/* Breadcrumbs */}
+            <nav className="flex items-center space-x-2 text-sm text-fg-muted mb-8">
+              <Link to="/en" className="hover:text-brand-primary transition-colors">
+                🏠
+              </Link>
+              <ChevronRight className="h-4 w-4" />
+              <span className="text-fg-secondary">Blog</span>
+            </nav>
+            
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl lg:text-5xl font-bold text-fg-primary mb-6">
                 Insights & Updates
@@ -138,6 +147,30 @@ const Blog = () => {
                   </Link>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* Newsletter Signup */}
+        <section className="py-20 bg-bg-subtle">
+          <div className="container-3of4">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-fg-primary mb-6">
+                Subscribe to Updates
+              </h2>
+              <p className="text-lg text-fg-secondary mb-8">
+                Get the latest news and insights in environmental solutions
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="flex-1 px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
+                />
+                <Button className="bg-brand-primary hover:bg-brand-primary-strong">
+                  Subscribe
+                </Button>
+              </div>
             </div>
           </div>
         </section>
