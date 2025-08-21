@@ -111,36 +111,35 @@ const Header = () => {
               </NavigationMenu>
             </div>
 
-            {/* Language Switcher */}
-            <div className="hidden md:flex items-center space-x-2">
-              <Globe className="h-4 w-4 text-fg-muted" />
-              <div className="flex items-center space-x-1 text-sm">
-                <Link
-                  to="/en"
-                  className={`px-2 py-1 rounded transition-colors ${
-                    isEnglish 
-                      ? 'bg-brand-primary text-white' 
-                      : 'text-fg-secondary hover:text-brand-primary'
-                  }`}
-                >
-                  EN
-                </Link>
-                <span className="text-fg-muted">|</span>
-                <Link
-                  to="/"
-                  className={`px-2 py-1 rounded transition-colors ${
-                    !isEnglish 
-                      ? 'bg-brand-primary text-white' 
-                      : 'text-fg-secondary hover:text-brand-primary'
-                  }`}
-                >
-                  LV
-                </Link>
+            {/* Language Switcher & Desktop CTA */}
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <Globe className="h-4 w-4 text-fg-muted" />
+                <div className="flex items-center space-x-1 text-sm">
+                  <Link
+                    to="/en"
+                    className={`px-2 py-1 rounded transition-colors ${
+                      isEnglish 
+                        ? 'bg-brand-primary text-white' 
+                        : 'text-fg-secondary hover:text-brand-primary'
+                    }`}
+                  >
+                    EN
+                  </Link>
+                  <span className="text-fg-muted">|</span>
+                  <Link
+                    to="/"
+                    className={`px-2 py-1 rounded transition-colors ${
+                      !isEnglish 
+                        ? 'bg-brand-primary text-white' 
+                        : 'text-fg-secondary hover:text-brand-primary'
+                    }`}
+                  >
+                    LV
+                  </Link>
+                </div>
               </div>
-            </div>
-
-            {/* Desktop CTA */}
-            <div className="hidden md:flex items-center space-x-4 ml-8">
+              
               <Button asChild variant="default" className="focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <Link to={isEnglish ? "/en/contacts" : "/contacts"}>Contact us</Link>
               </Button>
