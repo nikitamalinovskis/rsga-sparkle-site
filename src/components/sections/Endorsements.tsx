@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Quote, ArrowRight, Star } from 'lucide-react';
@@ -18,6 +19,37 @@ interface EndorsementsProps {
 
 const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
   const sectionRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+
+  // Get current language from route
+  const getCurrentLanguage = () => {
+    if (location.pathname.startsWith('/en')) return 'en';
+    if (location.pathname.startsWith('/ru')) return 'ru';
+    return 'lv'; // default to Latvian
+  };
+
+  // Get localized text
+  const getLocalizedText = (key: string) => {
+    const language = getCurrentLanguage();
+    const translations = {
+      title: {
+        lv: 'Klientu atsauksmes',
+        en: 'Endorsements from our clients',
+        ru: 'Отзывы наших клиентов'
+      },
+      subtitle: {
+        lv: 'Mums uzticas vadošie atkritumu apsaimniekošanas uzņēmumi visā Latvijā un Eiropā',
+        en: 'Trusted by leading waste management companies across Latvia and Europe',
+        ru: 'Нам доверяют ведущие компании по управлению отходами в Латвии и Европе'
+      },
+      readMore: {
+        lv: 'Lasīt vairāk',
+        en: 'Read more',
+        ru: 'Читать далее'
+      }
+    };
+    return translations[key as keyof typeof translations]?.[language] || translations[key as keyof typeof translations]?.lv;
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,10 +117,10 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
       <div className="container-3of4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-fg-primary mb-4">
-            Endorsements from our clients
+            {getLocalizedText('title')}
           </h2>
           <p className="text-lg md:text-xl text-fg-secondary max-w-3xl mx-auto leading-relaxed">
-            Trusted by leading waste management companies across Latvia and Europe
+            {getLocalizedText('subtitle')}
           </p>
           <div className="w-24 h-1 bg-brand-primary mx-auto mt-6 rounded-full" />
         </div>
@@ -144,7 +176,7 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
                   size="sm" 
                   className="w-full border-brand-primary/30 text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 group-hover:scale-105"
                 >
-                  Read more
+                  {getLocalizedText('readMore')}
                   <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </CardContent>
