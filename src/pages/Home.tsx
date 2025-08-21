@@ -12,94 +12,94 @@ import SEO from '@/components/SEO';
 // CMS Data - This would typically come from a CMS or API
 const pageData = {
   hero: {
-    title: "Innovative environmental solutions for waste management",
-    subtitle: "RSGA provides sustainable and cost-efficient services for landfills and construction sites.",
+    title: "Inovatīvi vides risinājumi atkritumu apsaimniekošanai",
+    subtitle: "Ilgtspējīgi, efektīvi un atbilstoši ES standartiem.",
     cta: [
-      { label: "Learn more", action: "/about" },
-      { label: "Contact us", action: "/contact" }
+      { label: "Apskatīt pakalpojumus", action: "/services" },
+      { label: "Sazināties ar mums", action: "/contacts" }
     ]
   },
   services: [
     {
       id: "cover",
-      title: "Alternative daily and long-term cover services",
-      description: "Modern replacement for traditional soil cover on landfills. Cost savings in material transport and storage. Eco-friendly, EU compliant.",
+      title: "Dienas un ilgtermiņa pārklājumi",
+      description: "Videi draudzīgs ikdienas augsnes pārklājuma aizstājējs, kas taupa resursus un izmaksas.",
       category: "Core",
       image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
     },
     {
       id: "hydroseeding",
-      title: "Hydroseeding",
-      description: "Effective method for soil erosion control and vegetation restoration. Fast results, low costs. Applied on slopes, landfills, quarries, construction sites.",
+      title: "Hidrosēšana",
+      description: "Izdevīga metode erozijas kontrolei un veģetācijas atjaunošanai.",
       category: "Core",
       image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png"
     },
     {
       id: "deodorant-dust",
-      title: "Industrial deodorant and anti-dust treatment",
-      description: "Reduces odor on landfills and industrial facilities. Dust suppression on roads and construction sites. Improves environmental safety and comfort.",
+      title: "Industriālie dezodoranti un putekļu samazināšana",
+      description: "Smaku kontrole un putekļu samazināšana poligonos un industriālajās teritorijās.",
       category: "Core",
       image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png"
     },
     {
       id: "sand",
-      title: "Sale of sand",
-      description: "Supply of high-quality sand for construction and industrial use. Flexible delivery options.",
+      title: "Smilšu tirdzniecība",
+      description: "Kvalitatīvas smilts piegāde būvniecībai un rūpniecībai.",
       category: "Additional",
       image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png"
     },
     {
       id: "earthworks",
-      title: "Earthworks",
-      description: "Full-cycle earthmoving services for construction and infrastructure projects. Excavation, leveling, and site preparation.",
+      title: "Zemes darbi",
+      description: "Pilna cikla izrakumi un teritoriju sagatavošanas darbi.",
       category: "Additional",
       image: "/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png"
     },
     {
       id: "planning",
-      title: "Planning and business development services",
-      description: "Consultancy in landfill management and sustainable waste solutions. Support for planning, compliance, and growth strategies.",
+      title: "Plānošana un attīstība",
+      description: "Stratēģiskās konsultācijas poligonu plānošanā un ilgtspējīgai izaugsmei.",
       category: "Additional",
       image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png"
     }
   ],
   about: {
-    text: "RSGA works in waste management and eco-services. Mission: improve environmental sustainability with innovative technologies. Scope: Latvia & Europe."
+    text: "RSGA nodrošina inovatīvus vides risinājumus atkritumu apsaimniekošanai. Mūsu misija: uzlabot vides ilgtspējību ar mūsdienīgām tehnoloģijām. Darbības sfēra: Latvija un Eiropa."
   },
   video_block: {
-    title: "Learn more about our innovative solutions",
+    title: "Skatieties, kā mēs īstenojam ilgtspējīgus vides risinājumus darbībā",
     url: "https://youtu.be/Dp79pLCIACo?si=eXO1q-5fS3UgyoSX",
-    description: "This video showcases RSGA's approach to sustainable landfill management, highlighting alternative cover solutions, hydroseeding technology, and industrial deodorant applications."
+    description: "Šis video demonstrē RSGA pieeju ilgtspējīgai poligonu apsaimniekošanai, izceļot alternatīvos pārklājuma risinājumus, hidrosēšanas tehnoloģijas un industriālo dezodorantu pielietojumu."
   },
   endorsements: [
     {
       company: "Getliņi EKO",
       logo: "getlini-logo.svg",
       person: "Imants Stirāns",
-      role: "Chair of the Board",
-      testimonial: "For more than 10 years, our company has been buying from SIA RSGA the service – Alternative Daily Coverage at the landfill Getliņi EKO. During this period, a successful cooperation has developed, ensuring sustainable and cost-efficient landfill operations.",
+      role: "Valdes priekšsēdētājs",
+      testimonial: "Vairāk nekā 10 gadus mūsu uzņēmums no SIA RSGA iegādājas pakalpojumu – alternatīvo dienas pārklājumu poligonā Getliņi EKO. Šajā laikā ir izveidojusies sekmīga sadarbība, nodrošinot ilgtspējīgu un izmaksu efektīvu poligona darbību.",
       link: "#"
     },
     {
       company: "Vidusdaugavas SPAAO",
       logo: "spao-logo.svg",
       person: "Jānis Bisnieks",
-      role: "Chair of the Board",
-      testimonial: "Thanks to RSGA's innovative deodorant solutions, we have been able to improve environmental comfort and minimize odor impact for nearby communities.",
+      role: "Valdes priekšsēdētājs",
+      testimonial: "Pateicoties RSGA inovatīvajiem dezodorantu risinājumiem, mēs esam spējuši uzlabot vides komfortu un minimizēt smaku ietekmi uz tuvākajām kopienām.",
       link: "#"
     },
     {
       company: "Liepājas RAS",
       logo: "liepajasras-logo.svg",
       person: "Normunds Niedols",
-      role: "Chair of the Board",
-      testimonial: "With RSGA's alternative cover solutions, we have reduced costs while maintaining environmental safety standards at the Kivites landfill.",
+      role: "Valdes priekšsēdētājs",
+      testimonial: "Ar RSGA alternatīvo pārklājumu risinājumiem mēs esam samazinājuši izmaksas, vienlaikus saglabājot vides drošības standartus Ķivīšu poligonā.",
       link: "#"
     }
   ],
   cta_block: {
-    text: "Let's make waste management more sustainable together.",
-    button: { label: "Get in touch", action: "/contact" }
+    text: "Gatavi uzlabot savu atkritumu apsaimniekošanas stratēģiju?",
+    button: { label: "Sazināties ar mums", action: "/contacts" }
   },
   contacts: {
     company: "SIA RSGA",
