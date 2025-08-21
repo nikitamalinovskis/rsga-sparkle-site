@@ -137,13 +137,13 @@ const Header = () => {
                             {link.label}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
-                            <div className="grid w-[400px] gap-0 p-1 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white border border-border-subtle rounded-lg shadow-lg">
+                            <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white border border-border-subtle rounded-lg shadow-lg">
                               {serviceLinks.map(service => (
                                 <NavigationMenuLink key={service.href} asChild>
-                                   <Link
-                                     to={service.href}
-                                     className="block select-none space-y-1 rounded-none px-4 py-4 leading-none no-underline outline-none transition-colors hover:bg-brand-tint hover:text-brand-primary focus:bg-brand-tint focus:text-brand-primary w-full"
-                                   >
+                                  <Link
+                                    to={service.href}
+                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-brand-tint hover:text-brand-primary focus:bg-brand-tint focus:text-brand-primary"
+                                  >
                                     <div className="text-sm font-medium leading-none">{service.label}</div>
                                   </Link>
                                 </NavigationMenuLink>
