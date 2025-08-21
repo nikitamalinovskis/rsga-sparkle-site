@@ -4,7 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Shield, Droplets, Wind, Truck, Pickaxe, TrendingUp } from 'lucide-react';
 
 const servicesData = [
   {
@@ -60,6 +60,18 @@ const contacts = {
   fax: "+371 67 32 56 24"
 };
 
+const getServiceIcon = (id: string) => {
+  const iconMap: { [key: string]: React.ReactNode } = {
+    'alternative-cover': <Shield className="h-6 w-6 text-brand-primary" />,
+    'hydroseeding': <Droplets className="h-6 w-6 text-brand-primary" />,
+    'industrial-deodorant-dust': <Wind className="h-6 w-6 text-brand-primary" />,
+    'sale-of-sand': <Truck className="h-6 w-6 text-brand-primary" />,
+    'earthworks': <Pickaxe className="h-6 w-6 text-brand-primary" />,
+    'planning-business-development': <TrendingUp className="h-6 w-6 text-brand-primary" />
+  };
+  return iconMap[id] || <Shield className="h-6 w-6 text-brand-primary" />;
+};
+
 const Services = () => {
   return (
     <div className="min-h-screen">
@@ -96,6 +108,11 @@ const Services = () => {
                       />
                     </div>
                     <CardHeader>
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="p-3 bg-brand-tint rounded-xl group-hover:scale-110 transition-transform duration-300">
+                          {getServiceIcon(service.id)}
+                        </div>
+                      </div>
                       <CardTitle className="text-xl font-semibold text-fg-primary group-hover:text-brand-primary transition-colors">
                         {service.title}
                       </CardTitle>

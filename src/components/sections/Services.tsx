@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle, Leaf, Shield, Truck } from 'lucide-react';
+import { ArrowRight, Shield, Droplets, Wind, Truck, Pickaxe, TrendingUp } from 'lucide-react';
 
 interface Service {
   id: string;
@@ -46,13 +46,17 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
   const getServiceIcon = (id: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
       'alternative-cover': <Shield className="h-6 w-6 text-brand-primary" />,
-      'hydroseeding': <Leaf className="h-6 w-6 text-brand-primary" />,
-      'industrial-deodorant-dust': <CheckCircle className="h-6 w-6 text-brand-primary" />,
+      'cover': <Shield className="h-6 w-6 text-brand-primary" />,
+      'hydroseeding': <Droplets className="h-6 w-6 text-brand-primary" />,
+      'industrial-deodorant-dust': <Wind className="h-6 w-6 text-brand-primary" />,
+      'deodorant-dust': <Wind className="h-6 w-6 text-brand-primary" />,
       'sale-of-sand': <Truck className="h-6 w-6 text-brand-primary" />,
-      'earthworks': <Truck className="h-6 w-6 text-brand-primary" />,
-      'planning-business-development': <CheckCircle className="h-6 w-6 text-brand-primary" />
+      'sand': <Truck className="h-6 w-6 text-brand-primary" />,
+      'earthworks': <Pickaxe className="h-6 w-6 text-brand-primary" />,
+      'planning-business-development': <TrendingUp className="h-6 w-6 text-brand-primary" />,
+      'planning': <TrendingUp className="h-6 w-6 text-brand-primary" />
     };
-    return iconMap[id] || <CheckCircle className="h-6 w-6 text-brand-primary" />;
+    return iconMap[id] || <Shield className="h-6 w-6 text-brand-primary" />;
   };
 
   return (
