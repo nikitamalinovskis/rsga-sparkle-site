@@ -32,6 +32,12 @@ import RuContacts from "./pages/ru/Contacts";
 import RuBlog from "./pages/ru/Blog";
 import RuPrivacyPolicy from "./pages/ru/PrivacyPolicy";
 import RuTermsOfService from "./pages/ru/TermsOfService";
+import RuAlternativeCover from "./pages/ru/services/AlternativeCover";
+import RuHydroseeding from "./pages/ru/services/Hydroseeding";
+import RuIndustrialDeodorantDust from "./pages/ru/services/IndustrialDeodorantDust";
+import RuSaleOfSand from "./pages/ru/services/SaleOfSand";
+import RuEarthworks from "./pages/ru/services/Earthworks";
+import RuPlanningBusinessDevelopment from "./pages/ru/services/PlanningBusinessDevelopment";
 import EnAlternativeCover from "./pages/en/services/AlternativeCover";
 import EnHydroseeding from "./pages/en/services/Hydroseeding";
 import EnIndustrialDeodorantDust from "./pages/en/services/IndustrialDeodorantDust";
@@ -82,6 +88,14 @@ const App = () => (
           <Route path="/en/blog" element={<EnBlog />} />
           <Route path="/en/privacy-policy" element={<EnPrivacyPolicy />} />
           <Route path="/en/terms-of-service" element={<EnTermsOfService />} />
+          
+          {/* Russian service detail pages */}
+          <Route path="/ru/services/alternative-cover" element={<RuAlternativeCover />} />
+          <Route path="/ru/services/hydroseeding" element={<RuHydroseeding />} />
+          <Route path="/ru/services/industrial-deodorant-dust" element={<RuIndustrialDeodorantDust />} />
+          <Route path="/ru/services/sale-of-sand" element={<RuSaleOfSand />} />
+          <Route path="/ru/services/earthworks" element={<RuEarthworks />} />
+          <Route path="/ru/services/planning-business-development" element={<RuPlanningBusinessDevelopment />} />
           
           {/* English service detail pages */}
           <Route path="/en/services/alternative-cover" element={<EnAlternativeCover />} />
