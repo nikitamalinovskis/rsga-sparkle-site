@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, Leaf, Globe, Award } from 'lucide-react';
 
@@ -8,6 +9,57 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ text }) => {
   const sectionRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+
+  // Get current language from route
+  const getCurrentLanguage = () => {
+    if (location.pathname.startsWith('/en')) return 'en';
+    if (location.pathname.startsWith('/ru')) return 'ru';
+    return 'lv'; // default to Latvian
+  };
+
+  // Get localized text
+  const getLocalizedText = (key: string) => {
+    const language = getCurrentLanguage();
+    const translations = {
+      aboutTitle: {
+        lv: 'Par RSGA',
+        en: 'About RSGA',
+        ru: 'О компании RSGA'
+      },
+      ecoFriendly: {
+        lv: 'Videi draudzīgi risinājumi',
+        en: 'Eco-friendly solutions',
+        ru: 'Экологичные решения'
+      },
+      coverage: {
+        lv: 'Latvijas un Eiropas pārklājums',
+        en: 'Latvia & Europe coverage',
+        ru: 'Покрытие Латвии и Европы'
+      },
+      compliant: {
+        lv: 'ES atbilstošas tehnoloģijas',
+        en: 'EU compliant technologies',
+        ru: 'Технологии, соответствующие ЕС'
+      },
+      costEfficient: {
+        lv: 'Izmaksu efektīvi pakalpojumi',
+        en: 'Cost-efficient services',
+        ru: 'Экономически эффективные услуги'
+      },
+      yearsExperience: {
+        lv: 'Gadu pieredze',
+        en: 'Years Experience',
+        ru: 'Лет опыта'
+      },
+      learnMore: {
+        lv: 'Uzzināt vairāk',
+        en: 'Learn more',
+        ru: 'Узнать больше'
+      }
+    };
+    return translations[key as keyof typeof translations]?.[language] || translations[key as keyof typeof translations]?.lv;
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,10 +94,10 @@ const About: React.FC<AboutProps> = ({ text }) => {
   }, []);
 
   const features = [
-    { icon: <Leaf className="h-5 w-5" />, text: "Eco-friendly solutions" },
-    { icon: <Globe className="h-5 w-5" />, text: "Latvia & Europe coverage" },
-    { icon: <Award className="h-5 w-5" />, text: "EU compliant technologies" },
-    { icon: <Check className="h-5 w-5" />, text: "Cost-efficient services" }
+    { icon: <Leaf className="h-5 w-5" />, text: getLocalizedText('ecoFriendly') },
+    { icon: <Globe className="h-5 w-5" />, text: getLocalizedText('coverage') },
+    { icon: <Award className="h-5 w-5" />, text: getLocalizedText('compliant') },
+    { icon: <Check className="h-5 w-5" />, text: getLocalizedText('costEfficient') }
   ];
 
   return (
@@ -70,7 +122,7 @@ const About: React.FC<AboutProps> = ({ text }) => {
               {/* Floating stats */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 border border-brand-primary/10">
                 <div className="text-2xl font-bold text-brand-primary">10+</div>
-                <div className="text-sm text-fg-muted">Years Experience</div>
+                <div className="text-sm text-fg-muted">{getLocalizedText('yearsExperience')}</div>
               </div>
             </div>
           </div>
@@ -79,7 +131,7 @@ const About: React.FC<AboutProps> = ({ text }) => {
           <div className="animate-right opacity-0">
             <div className="max-w-lg">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-fg-primary mb-6 leading-tight">
-                About RSGA
+                {getLocalizedText('aboutTitle')}
               </h2>
               
               <p className="text-lg text-fg-secondary mb-8 leading-relaxed">
@@ -110,7 +162,7 @@ const About: React.FC<AboutProps> = ({ text }) => {
                 className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group animate-right opacity-0"
                 style={{ animationDelay: '1000ms' }}
               >
-                Learn more
+                {getLocalizedText('learnMore')}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
