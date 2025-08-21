@@ -156,28 +156,27 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className={`md:hidden overflow-hidden transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="py-4 border-t border-border-subtle">
-              <nav className="flex flex-col space-y-4">
+          <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="py-4 border-t border-border-subtle bg-white">
+              <nav className="flex flex-col space-y-3">
                 {navLinks.map((link, index) => (
-                  <div key={link.href}>
+                  <div key={link.href} className="px-4">
                     {link.hasDropdown ? (
                       <div className="space-y-2">
                         <Link
                           to={link.href}
-                          className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring px-2 py-1 animate-fade-in font-medium flex items-center"
-                          style={{ animationDelay: `${index * 100}ms` }}
+                          className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring py-2 font-medium flex items-center text-base"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {link.label}
                           <ChevronDown className="h-4 w-4 ml-1" />
                         </Link>
-                        <div className="ml-4 space-y-2">
+                        <div className="ml-4 space-y-1 bg-bg-subtle rounded-lg p-2">
                           {serviceLinks.map(service => (
                             <Link
                               key={service.href}
                               to={service.href}
-                              className="block text-sm text-fg-muted hover:text-brand-primary transition-all duration-300 focus-ring px-2 py-1"
+                              className="block text-sm text-fg-muted hover:text-brand-primary transition-all duration-300 focus-ring px-2 py-2 rounded hover:bg-brand-tint"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {service.label}
@@ -188,8 +187,7 @@ const Header = () => {
                     ) : (
                       <Link
                         to={link.href}
-                        className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring px-2 py-1 animate-fade-in"
-                        style={{ animationDelay: `${index * 100}ms` }}
+                        className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring py-2 font-medium text-base block"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {link.label}
@@ -199,27 +197,27 @@ const Header = () => {
                 ))}
                 
                 {/* Mobile Language Switcher */}
-                <div className="flex items-center space-x-2 px-2 py-1 animate-fade-in" style={{ animationDelay: '300ms' }}>
+                <div className="flex items-center justify-center space-x-2 px-4 py-3 mt-2 border-t border-border-subtle">
                   <Globe className="h-4 w-4 text-fg-muted" />
                   <div className="flex items-center space-x-1 text-sm">
                     <Link
                       to="/en"
-                      className={`px-2 py-1 rounded transition-colors ${
+                      className={`px-3 py-2 rounded transition-colors font-medium ${
                         isEnglish 
                           ? 'bg-brand-primary text-white' 
-                          : 'text-fg-secondary hover:text-brand-primary'
+                          : 'text-fg-secondary hover:text-brand-primary hover:bg-brand-tint'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       EN
                     </Link>
-                    <span className="text-fg-muted">|</span>
+                    <span className="text-fg-muted mx-1">|</span>
                     <Link
                       to="/"
-                      className={`px-2 py-1 rounded transition-colors ${
+                      className={`px-3 py-2 rounded transition-colors font-medium ${
                         !isEnglish 
                           ? 'bg-brand-primary text-white' 
-                          : 'text-fg-secondary hover:text-brand-primary'
+                          : 'text-fg-secondary hover:text-brand-primary hover:bg-brand-tint'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -228,7 +226,7 @@ const Header = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 animate-fade-in" style={{ animationDelay: '400ms' }}>
+                <div className="px-4 pt-4">
                   <Button asChild variant="default" className="w-full focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white">
                     <Link to={isEnglish ? "/en/contacts" : "/contacts"} onClick={() => setIsMenuOpen(false)}>
                       Contact us

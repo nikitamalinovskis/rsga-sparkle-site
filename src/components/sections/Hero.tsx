@@ -108,8 +108,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
                   index === 0 
                     ? "bg-brand-primary hover:bg-[#03294d] text-white shadow-lg hover:shadow-xl" 
                     : "bg-transparent border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10"
-                } focus-ring animate-scale-in`}
-                style={{ animationDelay: `${index * 200 + 800}ms` }}
+                } focus-ring`}
               >
                 {button.label}
                 {index === 0 && <ArrowRight className="ml-2 h-4 w-4" />}

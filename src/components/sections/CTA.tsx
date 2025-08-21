@@ -94,12 +94,12 @@ const CTA: React.FC<CTAProps> = ({ text, button }) => {
           </div>
 
           {/* Main text */}
-          <h2 className="cta-text opacity-0 text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-8 leading-tight">
+          <h2 className="cta-text text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-8 leading-tight">
             {text}
           </h2>
 
           {/* CTA Button */}
-          <div className="cta-button opacity-0">
+          <div className="cta-button">
             <Button 
               size="lg"
               className="bg-white text-brand-primary hover:bg-white/90 hover:text-brand-primary-strong transition-all duration-300 shadow-2xl hover:shadow-3xl px-8 py-4 text-lg font-semibold hover:scale-105 group"
@@ -110,7 +110,7 @@ const CTA: React.FC<CTAProps> = ({ text, button }) => {
           </div>
 
           {/* Secondary text */}
-          <p className="mt-6 text-white/80 text-lg animate-fade-in" style={{ animationDelay: '1000ms' }}>
+          <p className="mt-6 text-white/80 text-lg">
             Ready to transform your waste management approach?
           </p>
         </div>
