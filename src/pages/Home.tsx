@@ -23,37 +23,43 @@ const pageData = {
       id: "cover",
       title: "Alternative daily and long-term cover services",
       description: "Modern replacement for traditional soil cover on landfills. Cost savings in material transport and storage. Eco-friendly, EU compliant.",
-      category: "Core"
+      category: "Core",
+      image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
     },
     {
       id: "hydroseeding",
       title: "Hydroseeding",
       description: "Effective method for soil erosion control and vegetation restoration. Fast results, low costs. Applied on slopes, landfills, quarries, construction sites.",
-      category: "Core"
+      category: "Core",
+      image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png"
     },
     {
       id: "deodorant-dust",
       title: "Industrial deodorant and anti-dust treatment",
       description: "Reduces odor on landfills and industrial facilities. Dust suppression on roads and construction sites. Improves environmental safety and comfort.",
-      category: "Core"
+      category: "Core",
+      image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png"
     },
     {
       id: "sand",
       title: "Sale of sand",
       description: "Supply of high-quality sand for construction and industrial use. Flexible delivery options.",
-      category: "Additional"
+      category: "Additional",
+      image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png"
     },
     {
       id: "earthworks",
       title: "Earthworks",
       description: "Full-cycle earthmoving services for construction and infrastructure projects. Excavation, leveling, and site preparation.",
-      category: "Additional"
+      category: "Additional",
+      image: "/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png"
     },
     {
       id: "planning",
       title: "Planning and business development services",
       description: "Consultancy in landfill management and sustainable waste solutions. Support for planning, compliance, and growth strategies.",
-      category: "Additional"
+      category: "Additional",
+      image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png"
     }
   ],
   about: {
