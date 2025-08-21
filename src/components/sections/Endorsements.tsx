@@ -175,6 +175,7 @@ const Endorsements: React.FC<EndorsementsProps> = ({ endorsements }) => {
                   variant="outline" 
                   size="sm" 
                   className="w-full border-brand-primary/30 text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 group-hover:scale-105"
+                  onClick={() => window.open('https://rsga.lv/docs/Getlini.pdf', '_blank')}
                 >
                   {getLocalizedText('readMore')}
                   <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
