@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, User, ArrowRight, Shield, Droplets, Leaf } from 'lucide-react';
+import { Calendar, User, ArrowRight, Shield, Droplets, Leaf, ChevronRight } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 const contacts = {
@@ -70,6 +70,15 @@ const Blog = () => {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-hero">
           <div className="container-3of4">
+            {/* Breadcrumbs */}
+            <nav className="flex items-center space-x-2 text-sm text-fg-muted mb-8">
+              <Link to="/" className="hover:text-brand-primary transition-colors">
+                🏠
+              </Link>
+              <ChevronRight className="h-4 w-4" />
+              <span className="text-fg-secondary">Blogs</span>
+            </nav>
+            
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl lg:text-5xl font-bold text-fg-primary mb-6">
                 Ieskati un jaunumi
