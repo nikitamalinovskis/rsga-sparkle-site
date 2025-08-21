@@ -138,12 +138,25 @@ const AdminMedia: React.FC = () => {
         // Start upload progress
         setUploadProgress(prev => ({ ...prev, [file.name]: 0 }));
 
-        // Upload to Supabase Storage (you'll need to set up storage buckets)
-        // For now, we'll simulate upload and store metadata
+        // Upload to Supabase Storage
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('media')
+          .upload(filePath, file, {
+            cacheControl: '3600',
+            upsert: false
+          });
+
+        if (uploadError) throw uploadError;
+
+        // Get public URL
+        const { data: urlData } = supabase.storage
+          .from('media')
+          .getPublicUrl(filePath);
+
         const mediaData = {
           filename: fileName,
           original_name: file.name,
-          file_path: filePath,
+          file_path: urlData.publicUrl,
           file_size: file.size,
           mime_type: file.type,
           file_type: fileType,
