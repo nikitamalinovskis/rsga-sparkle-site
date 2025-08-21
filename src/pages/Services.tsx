@@ -136,7 +136,7 @@ const Services = () => {
                       <CardDescription className="text-fg-secondary mb-4">
                         {service.description}
                       </CardDescription>
-                      <Button variant="ghost" className="p-0 h-auto font-semibold text-brand-primary hover:text-brand-primary-strong group">
+                      <Button variant="ghost" className="p-0 h-auto font-semibold text-brand-primary hover:text-brand-primary-strong hover:bg-brand-tint px-4 py-2 rounded-md group transition-all duration-300">
                         Uzzināt vairāk
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Button>
