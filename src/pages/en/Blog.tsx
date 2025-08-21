@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { FileText, ArrowRight } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Calendar, User, ArrowRight, Shield, Droplets, Leaf } from 'lucide-react';
 
 const contacts = {
   company: "SIA RSGA",
@@ -14,6 +15,45 @@ const contacts = {
   email: "info@rsga.lv",
   fax: "+371 67 32 56 24"
 };
+
+const blogPosts = [
+  {
+    id: 'alternative-daily-cover-solutions',
+    title: 'Alternative Daily Cover: Modern Solutions for Landfill Management',
+    excerpt: 'Discover how alternative daily cover systems are revolutionizing landfill operations by reducing costs, improving efficiency, and ensuring EU compliance.',
+    author: 'RSGA Team',
+    date: '2024-01-15',
+    category: 'Landfill Management',
+    readTime: '5 min read',
+    image: '/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png',
+    icon: <Shield className="h-5 w-5" />,
+    slug: '/en/blog/alternative-daily-cover-solutions'
+  },
+  {
+    id: 'hydroseeding-vs-traditional-seeding',
+    title: 'Hydroseeding vs Traditional Seeding: Cost-Effective Erosion Control',
+    excerpt: 'Compare hydroseeding techniques with traditional seeding methods for slope stabilization and erosion control in construction and environmental projects.',
+    author: 'RSGA Team',
+    date: '2024-01-20',
+    category: 'Erosion Control',
+    readTime: '4 min read',
+    image: '/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png',
+    icon: <Droplets className="h-5 w-5" />,
+    slug: '/en/blog/hydroseeding-vs-traditional-seeding'
+  },
+  {
+    id: 'sustainable-waste-management-eu-compliance',
+    title: 'Sustainable Waste Management: EU Compliance and Best Practices',
+    excerpt: 'Navigate EU environmental regulations and implement sustainable waste management practices that benefit both your business and the environment.',
+    author: 'RSGA Team',  
+    date: '2024-01-25',
+    category: 'Environmental Technology',
+    readTime: '6 min read',
+    image: '/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png',
+    icon: <Leaf className="h-5 w-5" />,
+    slug: '/en/blog/sustainable-waste-management-eu-compliance'
+  }
+];
 
 const Blog = () => {
   return (
@@ -35,85 +75,63 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Empty State */}
+        {/* Blog Posts Grid */}
         <section className="py-20">
           <div className="container-3of4">
-            <div className="text-center max-w-2xl mx-auto">
-              <Card className="p-12">
-                <CardContent className="pt-6">
-                  <FileText className="h-16 w-16 text-brand-primary mx-auto mb-6" />
-                  <h2 className="text-2xl font-semibold text-fg-primary mb-4">
-                    Posts Coming Soon
-                  </h2>
-                  <p className="text-lg text-fg-secondary mb-8">
-                    We're preparing valuable insights about environmental solutions, waste management best practices, and industry updates. Stay tuned for expert knowledge from our team.
-                  </p>
-                  <div className="space-y-4">
-                    <Button asChild className="bg-brand-primary hover:bg-brand-primary-strong">
-                      <Link to="/en/contacts">
-                        Get notified when we publish
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                    <div className="text-sm text-fg-muted">
-                      Or{' '}
-                      <Link to="/en/services" className="text-brand-primary hover:underline">
-                        explore our services
-                      </Link>{' '}
-                      in the meantime
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Topics Preview */}
-        <section className="py-20 bg-bg-subtle">
-          <div className="container-3of4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-fg-primary mb-4">
-                What to Expect
-              </h2>
-              <p className="text-lg text-fg-secondary">
-                Topics we'll be covering in our upcoming blog posts
-              </p>
-            </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="p-6 text-center">
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold text-fg-primary mb-3">
-                    Landfill Management
-                  </h3>
-                  <p className="text-fg-secondary">
-                    Best practices for sustainable landfill operations and compliance
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card className="p-6 text-center">
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold text-fg-primary mb-3">
-                    Erosion Control
-                  </h3>
-                  <p className="text-fg-secondary">
-                    Hydroseeding techniques and slope stabilization methods
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card className="p-6 text-center">
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold text-fg-primary mb-3">
-                    Environmental Technology
-                  </h3>
-                  <p className="text-fg-secondary">
-                    Latest innovations in waste management and environmental protection
-                  </p>
-                </CardContent>
-              </Card>
+              {blogPosts.map((post, index) => (
+                <Card key={post.id} className="card-premium group cursor-pointer">
+                  <Link to={post.slug}>
+                    <div className="aspect-video overflow-hidden rounded-t-lg">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading={index < 3 ? "eager" : "lazy"}
+                      />
+                    </div>
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-2">
+                        <Badge variant="secondary" className="bg-brand-tint text-brand-primary">
+                          {post.category}
+                        </Badge>
+                        <div className="text-brand-primary">
+                          {post.icon}
+                        </div>
+                      </div>
+                      <CardTitle className="text-xl font-semibold text-fg-primary group-hover:text-brand-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-fg-secondary mb-4 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between text-sm text-fg-muted mb-4">
+                        <div className="flex items-center space-x-4">
+                          <div className="flex items-center space-x-1">
+                            <User className="h-4 w-4" />
+                            <span>{post.author}</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <Calendar className="h-4 w-4" />
+                            <span>{new Date(post.date).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short', 
+                              day: 'numeric' 
+                            })}</span>
+                          </div>
+                        </div>
+                        <span className="text-brand-primary font-medium">{post.readTime}</span>
+                      </div>
+                      <Button variant="ghost" className="p-0 h-auto font-semibold text-brand-primary hover:text-brand-primary-strong group w-full justify-start">
+                        Read article
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </CardContent>
+                  </Link>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
