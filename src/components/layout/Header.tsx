@@ -73,7 +73,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-10">
+            <nav className="hidden md:flex items-center space-x-20">
               <NavigationMenu>
                 <NavigationMenuList>
                   {navLinks.map(link => (
