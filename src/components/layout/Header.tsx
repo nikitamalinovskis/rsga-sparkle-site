@@ -140,10 +140,10 @@ const Header = () => {
                             <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white border border-border-subtle rounded-lg shadow-lg">
                               {serviceLinks.map(service => (
                                 <NavigationMenuLink key={service.href} asChild>
-                                  <Link
-                                    to={service.href}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-brand-tint hover:text-brand-primary focus:bg-brand-tint focus:text-brand-primary"
-                                  >
+                                   <Link
+                                     to={service.href}
+                                     className="block select-none space-y-1 rounded-md px-6 py-3 leading-none no-underline outline-none transition-colors hover:bg-brand-tint hover:text-brand-primary focus:bg-brand-tint focus:text-brand-primary"
+                                   >
                                     <div className="text-sm font-medium leading-none">{service.label}</div>
                                   </Link>
                                 </NavigationMenuLink>
