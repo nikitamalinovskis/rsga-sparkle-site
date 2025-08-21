@@ -84,7 +84,7 @@ const Header = () => {
                             {link.label}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
-                            <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                            <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white border border-border-subtle rounded-lg shadow-lg">
                               {serviceLinks.map(service => (
                                 <NavigationMenuLink key={service.href} asChild>
                                   <Link
