@@ -69,8 +69,8 @@ const Header = () => {
               <RSGALogo />
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center justify-center flex-1">
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
               <NavigationMenu>
                 <NavigationMenuList>
                   {navLinks.map(link => (
@@ -109,7 +109,7 @@ const Header = () => {
                   ))}
                 </NavigationMenuList>
               </NavigationMenu>
-            </nav>
+            </div>
 
             {/* Language Switcher */}
             <div className="hidden md:flex items-center space-x-2">
