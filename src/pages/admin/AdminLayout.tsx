@@ -40,8 +40,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ onLogout, children }) => {
 		{ name: 'Services', href: '/admin/services', icon: Settings },
 		{ name: 'Contacts', href: '/admin/contacts', icon: Mail },
 		{ name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
-		{ name: 'Media Library', href: '/admin/media', icon: ImageIcon },
-		{ name: 'Site Settings', href: '/admin/settings', icon: Settings }
+		{ name: 'Media Library', href: '/admin/media', icon: ImageIcon }
 	]
 
 	const handleLogout = () => {
