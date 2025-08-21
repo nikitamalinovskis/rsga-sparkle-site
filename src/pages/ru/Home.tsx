@@ -1,183 +1,152 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
+import Hero from '@/components/sections/Hero';
+import Services from '@/components/sections/Services';
+import VideoBlock from '@/components/sections/VideoBlock';
+import About from '@/components/sections/About';
+import Endorsements from '@/components/sections/Endorsements';
+import CTA from '@/components/sections/CTA';
 import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Leaf, Truck, Droplets, CheckCircle, Users, Award, Globe } from 'lucide-react';
 
-const contacts = {
-  company: "SIA RSGA",
-  registration_no: "40003811272",
-  address: "Mārupes iela 4, Rīga, Latvia, LV-1002",
-  phone: "+371 67 32 56 73",
-  email: "info@rsga.lv",
-  fax: "+371 67 32 56 24"
-};
-
-const services = [
-  {
-    icon: Leaf,
-    title: 'Альтернативное покрытие',
-    description: 'Экологичные решения для ежедневного покрытия свалок'
+// Russian content for RSGA
+const pageData = {
+  hero: {
+    title: "Инновационные экологические решения для управления отходами",
+    subtitle: "RSGA предоставляет устойчивые и экономически эффективные услуги для полигонов и строительных площадок.",
+    cta: [
+      { label: "Узнать больше", action: "/ru/about" },
+      { label: "Связаться с нами", action: "/ru/contacts" }
+    ]
   },
-  {
-    icon: Droplets,
-    title: 'Гидропосев',
-    description: 'Быстрое восстановление растительности'
+  services: [
+    {
+      id: "alternative-cover",
+      title: "Альтернативное ежедневное и долгосрочное покрытие",
+      description: "Современная замена почвенного покрытия, снижающая затраты и логистику, соответствующая требованиям ЕС.",
+      category: "Основные",
+      link: "/ru/services/alternative-cover",
+      image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
+    },
+    {
+      id: "hydroseeding",
+      title: "Гидропосев",
+      description: "Быстрый и экономичный контроль эрозии и создание растительности на склонах и участках.",
+      category: "Основные",
+      link: "/ru/services/hydroseeding",
+      image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png"
+    },
+    {
+      id: "industrial-deodorant-dust",
+      title: "Промышленные дезодоранты и пылеподавление",
+      description: "Устранение запахов и подавление пыли для полигонов, дорог и промышленных зон.",
+      category: "Основные",
+      link: "/ru/services/industrial-deodorant-dust",
+      image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png"
+    },
+    {
+      id: "sale-of-sand",
+      title: "Продажа песка",
+      description: "Надежные поставки для строительных и промышленных нужд.",
+      category: "Дополнительные",
+      link: "/ru/services/sale-of-sand",
+      image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png"
+    },
+    {
+      id: "earthworks",
+      title: "Земляные работы",
+      description: "Выемка грунта, планировка, подготовка участков для инфраструктуры и строительства.",
+      category: "Дополнительные",
+      link: "/ru/services/earthworks",
+      image: "/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png"
+    },
+    {
+      id: "planning-business-development",
+      title: "Планирование и развитие бизнеса",
+      description: "Консультации по устойчивому управлению полигонами, соответствию требованиям и развитию.",
+      category: "Дополнительные",
+      link: "/ru/services/planning-business-development",
+      image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png"
+    }
+  ],
+  about: {
+    text: "RSGA работает в сфере управления отходами и экологических услуг. Миссия: улучшить экологическую устойчивость с помощью инновационных технологий. Охват: Латвия и Европа."
   },
-  {
-    icon: Truck,
-    title: 'Промышленный дезодорант',
-    description: 'Контроль запахов и пыли'
+  video_block: {
+    title: "Узнайте больше о наших инновационных решениях",
+    url: "https://youtu.be/Dp79pLCIACo?si=eXO1q-5fS3UgyoSX",
+    description: "Это видео демонстрирует подход RSGA к устойчивому управлению полигонами, включая решения альтернативного покрытия, технологии гидропосева и применение промышленных дезодорантов."
+  },
+  endorsements: [
+    {
+      company: "Getliņi EKO",
+      logo: "getlini-logo.svg",
+      person: "Иманц Стиранс",
+      role: "Председатель правления",
+      testimonial: "Более 10 лет наша компания покупает у SIA RSGA услугу – Альтернативное ежедневное покрытие на полигоне Getliņi EKO. За этот период сложилось успешное сотрудничество, обеспечивающее устойчивую и экономически эффективную работу полигона.",
+      link: "/ru/endorsements"
+    },
+    {
+      company: "Vidusdaugavas SPAAO",
+      logo: "spao-logo.svg",
+      person: "Янис Биснекс",
+      role: "Председатель правления",
+      testimonial: "Благодаря инновационным дезодорантным решениям RSGA мы смогли улучшить экологический комфорт и минимизировать воздействие запахов на близлежащие сообщества.",
+      link: "/ru/endorsements"
+    },
+    {
+      company: "Liepājas RAS",
+      logo: "liepajasras-logo.svg",
+      person: "Нормундс Ниедолс",
+      role: "Председатель правления",
+      testimonial: "С решениями альтернативного покрытия RSGA мы снизили затраты, сохранив стандарты экологической безопасности на полигоне Кивитес.",
+      link: "/ru/endorsements"
+    }
+  ],
+  cta_block: {
+    text: "Давайте вместе сделаем управление отходами более устойчивым.",
+    button: { label: "Связаться с нами", action: "/ru/contacts" }
+  },
+  contacts: {
+    company: "SIA RSGA",
+    registration_no: "40003811272",
+    address: "Mārupes iela 4, Рига, Латвия, LV-1002",
+    phone: "+371 67 32 56 73",
+    email: "info@rsga.lv",
+    fax: "+371 67 32 56 24"
   }
-];
-
-const stats = [
-  { icon: Users, label: "Лет опыта", value: "10+" },
-  { icon: Award, label: "Удовлетворенность", value: "95%+" },
-  { icon: Globe, label: "Покрытие", value: "Латвия и Европа" },
-  { icon: CheckCircle, label: "Проекты", value: "1000+" }
-];
+};
 
 const Home = () => {
   return (
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero relative overflow-hidden">
-        {/* Hero Background Image - Subtle landscape illustration */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
-          style={{ 
-            backgroundImage: 'url(/lovable-uploads/2edbc74c-48d5-40db-b417-981c9566080b.png)'
-          }}
+      <main>
+        <Hero 
+          title={pageData.hero.title}
+          subtitle={pageData.hero.subtitle}
+          cta={pageData.hero.cta}
         />
         
-        <div className="container-3of4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="mb-8">
-              <img 
-                src="/rsga_logo_footer.png" 
-                alt="RSGA Logo" 
-                className="h-20 mx-auto mb-6"
-              />
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-bold text-fg-primary mb-6">
-              Экологические решения для устойчивого будущего
-            </h1>
-            <p className="text-xl text-fg-secondary mb-8 leading-relaxed">
-              Улучшаем экологическую устойчивость с помощью инновационных, проверенных на практике решений для промышленности и строительства.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-brand-primary hover:bg-brand-primary-strong">
-                <Link to="/ru/services">
-                  Наши услуги
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/ru/contacts">Связаться с нами</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20">
-        <div className="container-3of4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-fg-primary mb-4">Наши услуги</h2>
-            <p className="text-lg text-fg-secondary">
-              Комплексные экологические решения для современного бизнеса
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="card-premium text-center p-6">
-                <CardContent className="pt-6">
-                  <service.icon className="h-12 w-12 text-brand-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-fg-primary mb-3">{service.title}</h3>
-                  <p className="text-fg-secondary">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Button asChild variant="outline">
-              <Link to="/ru/services">Все услуги</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-bg-subtle">
-        <div className="container-3of4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <Card key={index} className="text-center p-6 card-premium">
-                <CardContent className="pt-6">
-                  <stat.icon className="h-12 w-12 text-brand-primary mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-fg-primary mb-2">{stat.value}</div>
-                  <div className="text-sm font-semibold text-fg-secondary">{stat.label}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-20">
-        <div className="container-3of4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-fg-primary mb-6">О компании RSGA</h2>
-              <p className="text-lg text-fg-secondary mb-6 leading-relaxed">
-                Мы специализируемся на предоставлении экологических решений для промышленности, 
-                помогая компаниям соблюдать экологические стандарты и снижать воздействие на окружающую среду.
-              </p>
-              <p className="text-lg text-fg-secondary mb-8 leading-relaxed">
-                Наш опыт включает работу со свалками, строительными площадками и промышленными объектами 
-                по всей Латвии и Европе.
-              </p>
-              <Button asChild className="bg-brand-primary hover:bg-brand-primary-strong">
-                <Link to="/ru/about">Узнать больше</Link>
-              </Button>
-            </div>
-            <div className="relative">
-              <img
-                src="/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
-                alt="RSGA экологические решения"
-                className="w-full rounded-lg shadow-lg"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-hero">
-        <div className="container-3of4">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-fg-primary mb-6">
-              Готовы начать ваш проект?
-            </h2>
-            <p className="text-lg text-fg-secondary mb-8">
-              Свяжитесь с нами для консультации по вашим экологическим потребностям
-            </p>
-            <Button asChild size="lg" className="bg-brand-primary hover:bg-brand-primary-strong">
-              <Link to="/ru/contacts">Связаться с нами</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <Footer contacts={contacts} />
+        <Services services={pageData.services} />
+        
+        <VideoBlock 
+          title={pageData.video_block.title}
+          description={pageData.video_block.description}
+          url={pageData.video_block.url}
+        />
+        
+        <About text={pageData.about.text} />
+        
+        <Endorsements endorsements={pageData.endorsements} />
+        
+        <CTA 
+          text={pageData.cta_block.text}
+          button={pageData.cta_block.button}
+        />
+      </main>
+      
+      <Footer contacts={pageData.contacts} />
     </div>
   );
 };
