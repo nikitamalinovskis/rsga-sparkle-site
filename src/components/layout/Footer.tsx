@@ -108,7 +108,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
       services: [
         { label: 'Ежедневные и долгосрочные покрытия', href: '/ru/services/alternative-cover' },
         { label: 'Гидропосев', href: '/ru/services/hydroseeding' },
-        { label: 'Промышленные дезодоранты и пылеподавление', href: '/ru/services/industrial-deodorant-dust' },
+        { label: 'Промышленный дезодорант', href: '/ru/services/industrial-deodorant-dust' },
         { label: 'Продажа песка', href: '/ru/services/sale-of-sand' },
         { label: 'Земляные работы', href: '/ru/services/earthworks' },
         { label: 'Планирование и развитие', href: '/ru/services/planning-business-development' }
