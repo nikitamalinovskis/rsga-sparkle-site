@@ -64,18 +64,6 @@ const About: React.FC<AboutProps> = ({ text }) => {
               {/* Main image placeholder with environmental theme */}
               <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-brand-tint via-white to-brand-tint/50 p-8 shadow-2xl">
                 <div className="w-full h-full bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 rounded-xl flex items-center justify-center relative overflow-hidden" style={{backgroundImage: 'url(/lovable-uploads/d81a5f15-b1e3-4677-93eb-a1dcc3d6e0f3.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-                  {/* Environmental icons floating */}
-                  <div className="absolute inset-0">
-                    <div className="absolute top-4 left-4 w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center floating">
-                      <Leaf className="h-6 w-6 text-brand-primary" />
-                    </div>
-                    <div className="absolute top-8 right-8 w-16 h-16 bg-brand-primary/15 rounded-full flex items-center justify-center floating-delayed">
-                      <Globe className="h-8 w-8 text-brand-primary" />
-                    </div>
-                    <div className="absolute bottom-6 left-8 w-10 h-10 bg-brand-primary/25 rounded-full flex items-center justify-center floating">
-                      <Award className="h-5 w-5 text-brand-primary" />
-                    </div>
-                  </div>
                 </div>
               </div>
               
