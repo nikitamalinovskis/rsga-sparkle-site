@@ -25,42 +25,48 @@ const pageData = {
       title: "Alternatīvā pārklāšana",
       description: "Videi draudzīgs ikdienas augsnes pārklājuma aizstājējs, kas taupa resursus un izmaksas.",
       category: "Core",
-      image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
+      image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png",
+      link: "/services/alternative-cover"
     },
     {
       id: "hydroseeding",
       title: "Hidrosēja",
       description: "Izdevīga metode erozijas kontrolei un veģetācijas atjaunošanai.",
       category: "Core",
-      image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png"
+      image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png",
+      link: "/services/hydroseeding"
     },
     {
       id: "deodorant-dust",
       title: "Industriālais dezodorants",
       description: "Smaku kontrole un putekļu samazināšana poligonos un industriālajās teritorijās.",
       category: "Core",
-      image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png"
+      image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png",
+      link: "/services/industrial-deodorant-dust"
     },
     {
       id: "sand",
       title: "Smilšu tirdzniecība",
       description: "Kvalitatīvas smilts piegāde būvniecībai un rūpniecībai.",
       category: "Additional",
-      image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png"
+      image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png",
+      link: "/services/sale-of-sand"
     },
     {
       id: "earthworks",
       title: "Zemes darbi",
       description: "Pilna cikla izrakumi un teritoriju sagatavošanas darbi.",
       category: "Additional",
-      image: "/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png"
+      image: "/lovable-uploads/22aad84a-459a-4481-a422-60bf8199d441.png",
+      link: "/services/earthworks"
     },
     {
       id: "planning",
       title: "Plānošana un attīstība",
       description: "Stratēģiskās konsultācijas poligonu plānošanā un ilgtspējīgai izaugsmei.",
       category: "Additional",
-      image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png"
+      image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png",
+      link: "/services/planning-business-development"
     }
   ],
   about: {
