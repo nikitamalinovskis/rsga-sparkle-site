@@ -71,6 +71,9 @@ import RuAlternativeDailyCoverSolutions from "./pages/ru/blog/AlternativeDailyCo
 import RuHydroseedingVsTraditionalSeeding from "./pages/ru/blog/HydroseedingVsTraditionalSeeding";
 import RuSustainableWasteManagementEuCompliance from "./pages/ru/blog/SustainableWasteManagementEuCompliance";
 
+// Admin App
+import AdminApp from "./pages/admin/AdminApp";
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -150,6 +153,9 @@ const App = () => {
           <Route path="/ru/blog/alternative-daily-cover-solutions" element={<RuAlternativeDailyCoverSolutions />} />
           <Route path="/ru/blog/hydroseeding-vs-traditional-seeding" element={<RuHydroseedingVsTraditionalSeeding />} />
           <Route path="/ru/blog/sustainable-waste-management-eu-compliance" element={<RuSustainableWasteManagementEuCompliance />} />
+          
+          {/* Admin routes */}
+          <Route path="/admin/*" element={<AdminApp />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
