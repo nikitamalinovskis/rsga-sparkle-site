@@ -73,14 +73,14 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-10">
               <NavigationMenu>
                 <NavigationMenuList>
                   {navLinks.map(link => (
                     <NavigationMenuItem key={link.href}>
                       {link.hasDropdown ? (
                         <>
-                          <NavigationMenuTrigger className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring font-medium bg-transparent">
+                          <NavigationMenuTrigger className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring font-medium bg-transparent text-base h-auto p-0">
                             {link.label}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
@@ -114,7 +114,7 @@ const Header = () => {
               </NavigationMenu>
 
               {/* Language Switcher */}
-              <div className="flex items-center space-x-2 ml-4">
+              <div className="flex items-center space-x-2 ml-8">
                 <Globe className="h-4 w-4 text-fg-muted" />
                 <div className="flex items-center space-x-1 text-sm">
                   <Link
