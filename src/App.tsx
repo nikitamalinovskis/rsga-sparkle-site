@@ -24,7 +24,14 @@ import EnBlog from "./pages/en/Blog";
 import EnPrivacyPolicy from "./pages/en/PrivacyPolicy";
 import EnTermsOfService from "./pages/en/TermsOfService";
 
-// English service pages
+// Russian routes
+import RuHome from "./pages/ru/Home";
+import RuServices from "./pages/ru/Services";
+import RuAbout from "./pages/ru/About";
+import RuContacts from "./pages/ru/Contacts";
+import RuBlog from "./pages/ru/Blog";
+import RuPrivacyPolicy from "./pages/ru/PrivacyPolicy";
+import RuTermsOfService from "./pages/ru/TermsOfService";
 import EnAlternativeCover from "./pages/en/services/AlternativeCover";
 import EnHydroseeding from "./pages/en/services/Hydroseeding";
 import EnIndustrialDeodorantDust from "./pages/en/services/IndustrialDeodorantDust";
@@ -57,6 +64,15 @@ const App = () => (
           <Route path="/blog" element={<LvBlog />} />
           <Route path="/privacy-policy" element={<LvPrivacyPolicy />} />
           <Route path="/terms-of-service" element={<LvTermsOfService />} />
+          
+          {/* Russian routes */}
+          <Route path="/ru" element={<RuHome />} />
+          <Route path="/ru/services" element={<RuServices />} />
+          <Route path="/ru/about" element={<RuAbout />} />
+          <Route path="/ru/contacts" element={<RuContacts />} />
+          <Route path="/ru/blog" element={<RuBlog />} />
+          <Route path="/ru/privacy-policy" element={<RuPrivacyPolicy />} />
+          <Route path="/ru/terms-of-service" element={<RuTermsOfService />} />
           
           {/* English routes */}
           <Route path="/en" element={<EnHome />} />
