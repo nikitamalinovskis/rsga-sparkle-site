@@ -5,11 +5,11 @@ import AdminLayout from './AdminLayout';
 import AdminDashboard from './AdminDashboard';
 import AdminPages from './AdminPages';
 import AdminBlog from './AdminBlog';
+import AdminServices from './AdminServices';
+import AdminContacts from './AdminContacts';
+import AdminAnalytics from './AdminAnalytics';
 
 // Placeholder components for other admin sections
-const AdminServices = () => <div className="p-6"><h1 className="text-2xl font-bold">Services Management (Coming Soon)</h1></div>;
-const AdminContacts = () => <div className="p-6"><h1 className="text-2xl font-bold">Contacts Management (Coming Soon)</h1></div>;
-const AdminAnalytics = () => <div className="p-6"><h1 className="text-2xl font-bold">Analytics Dashboard (Coming Soon)</h1></div>;
 const AdminMedia = () => <div className="p-6"><h1 className="text-2xl font-bold">Media Library (Coming Soon)</h1></div>;
 const AdminSettings = () => <div className="p-6"><h1 className="text-2xl font-bold">Site Settings (Coming Soon)</h1></div>;
 
