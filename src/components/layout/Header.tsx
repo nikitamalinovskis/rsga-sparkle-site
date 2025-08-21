@@ -73,7 +73,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-60">
+            <nav className="hidden md:flex items-center justify-center flex-1">
               <NavigationMenu>
                 <NavigationMenuList>
                   {navLinks.map(link => (
@@ -112,35 +112,35 @@ const Header = () => {
                   ))}
                 </NavigationMenuList>
               </NavigationMenu>
-
-              {/* Language Switcher */}
-              <div className="flex items-center space-x-2 ml-8">
-                <Globe className="h-4 w-4 text-fg-muted" />
-                <div className="flex items-center space-x-1 text-sm">
-                  <Link
-                    to="/en"
-                    className={`px-2 py-1 rounded transition-colors ${
-                      isEnglish 
-                        ? 'bg-brand-primary text-white' 
-                        : 'text-fg-secondary hover:text-brand-primary'
-                    }`}
-                  >
-                    EN
-                  </Link>
-                  <span className="text-fg-muted">|</span>
-                  <Link
-                    to="/"
-                    className={`px-2 py-1 rounded transition-colors ${
-                      !isEnglish 
-                        ? 'bg-brand-primary text-white' 
-                        : 'text-fg-secondary hover:text-brand-primary'
-                    }`}
-                  >
-                    LV
-                  </Link>
-                </div>
-              </div>
             </nav>
+
+            {/* Language Switcher */}
+            <div className="hidden md:flex items-center space-x-2">
+              <Globe className="h-4 w-4 text-fg-muted" />
+              <div className="flex items-center space-x-1 text-sm">
+                <Link
+                  to="/en"
+                  className={`px-2 py-1 rounded transition-colors ${
+                    isEnglish 
+                      ? 'bg-brand-primary text-white' 
+                      : 'text-fg-secondary hover:text-brand-primary'
+                  }`}
+                >
+                  EN
+                </Link>
+                <span className="text-fg-muted">|</span>
+                <Link
+                  to="/"
+                  className={`px-2 py-1 rounded transition-colors ${
+                    !isEnglish 
+                      ? 'bg-brand-primary text-white' 
+                      : 'text-fg-secondary hover:text-brand-primary'
+                  }`}
+                >
+                  LV
+                </Link>
+              </div>
+            </div>
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center space-x-4">
