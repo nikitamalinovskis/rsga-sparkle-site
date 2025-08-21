@@ -8,10 +8,8 @@ import AdminBlog from './AdminBlog';
 import AdminServices from './AdminServices';
 import AdminContacts from './AdminContacts';
 import AdminAnalytics from './AdminAnalytics';
-
-// Placeholder components for other admin sections
-const AdminMedia = () => <div className="p-6"><h1 className="text-2xl font-bold">Media Library (Coming Soon)</h1></div>;
-const AdminSettings = () => <div className="p-6"><h1 className="text-2xl font-bold">Site Settings (Coming Soon)</h1></div>;
+import AdminMedia from './AdminMedia';
+import AdminSettings from './AdminSettings';
 
 const AdminApp: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
