@@ -14,6 +14,7 @@ import {
   Calendar
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { TestButtons } from '@/components/admin/TestButtons';
 
 interface DashboardStats {
   pages: number;
@@ -208,77 +209,83 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Recent Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Calendar className="h-5 w-5" />
-              Recent Activity
-            </CardTitle>
-            <CardDescription>
-              Latest content updates across all languages
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {recentContent.map((item, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-bg-subtle rounded-lg">
-                  <div className="flex items-center gap-3">
-                    {item.type === 'page' ? (
-                      <FileText className="h-4 w-4 text-blue-600" />
-                    ) : (
-                      <BookOpen className="h-4 w-4 text-green-600" />
-                    )}
-                    <div>
-                      <p className="font-medium text-fg-primary">{item.title}</p>
-                      <div className="flex items-center gap-2 text-xs text-fg-muted">
-                        <Badge variant="outline" className="text-xs">
-                          {item.language?.toUpperCase()}
-                        </Badge>
-                        <span>{formatDate(item.updated_at)}</span>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Calendar className="h-5 w-5" />
+                Recent Activity
+              </CardTitle>
+              <CardDescription>
+                Latest content updates across all languages
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {recentContent.map((item, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-bg-subtle rounded-lg">
+                    <div className="flex items-center gap-3">
+                      {item.type === 'page' ? (
+                        <FileText className="h-4 w-4 text-blue-600" />
+                      ) : (
+                        <BookOpen className="h-4 w-4 text-green-600" />
+                      )}
+                      <div>
+                        <p className="font-medium text-fg-primary">{item.title}</p>
+                        <div className="flex items-center gap-2 text-xs text-fg-muted">
+                          <Badge variant="outline" className="text-xs">
+                            {item.language?.toUpperCase()}
+                          </Badge>
+                          <span>{formatDate(item.updated_at)}</span>
+                        </div>
                       </div>
                     </div>
+                    <Badge variant={getStatusBadge(item.status)}>
+                      {item.status}
+                    </Badge>
                   </div>
-                  <Badge variant={getStatusBadge(item.status)}>
-                    {item.status}
-                  </Badge>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5" />
-              Quick Actions
-            </CardTitle>
-            <CardDescription>
-              Common tasks and shortcuts
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-        <div className="space-y-4">
-          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/pages')}>
-            <FileText className="h-4 w-4 mr-2" />
-            Create New Page
-          </Button>
-          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/blog')}>
-            <BookOpen className="h-4 w-4 mr-2" />
-            Write Blog Post
-          </Button>
-          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/services')}>
-            <Users className="h-4 w-4 mr-2" />
-            Manage Services
-          </Button>
-          <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/contacts')}>
-            <Mail className="h-4 w-4 mr-2" />
-            Check New Contacts
-          </Button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
-          </CardContent>
-        </Card>
+
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <TrendingUp className="h-5 w-5" />
+                Quick Actions
+              </CardTitle>
+              <CardDescription>
+                Common tasks and shortcuts
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/pages')}>
+                  <FileText className="h-4 w-4 mr-2" />
+                  Create New Page
+                </Button>
+                <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/blog')}>
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Write Blog Post
+                </Button>
+                <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/services')}>
+                  <Users className="h-4 w-4 mr-2" />
+                  Manage Services
+                </Button>
+                <Button className="w-full justify-start" variant="outline" onClick={() => navigate('/admin/contacts')}>
+                  <Mail className="h-4 w-4 mr-2" />
+                  Check New Contacts
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <TestButtons />
+        </div>
       </div>
     </div>
   );
