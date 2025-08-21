@@ -10,28 +10,28 @@ import SEO from '@/components/SEO';
 const servicesData = [
   {
     id: "alternative-cover",
-    title: "Alternatīvs ikdienas un ilgtermiņa segums",
+    title: "Alternatīvā pārklāšana",
     description: "Mūsdienīga augsnes seguma aizstāšana, kas samazina izmaksas un loģistiku, atbilst ES prasībām.",
     image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png",
     link: "/services/alternative-cover"
   },
   {
     id: "hydroseeding",
-    title: "Hidrosēkla",
+    title: "Hidrosēja",
     description: "Ātra, izmaksu efektīva erozijas kontrole un veģetācijas veidošana nogāzēm un platībām.",
     image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png",
     link: "/services/hydroseeding"
   },
   {
     id: "industrial-deodorant-dust",
-    title: "Rūpnieciskais dezodorants un putekļu apkarošana",
+    title: "Industriālais dezodorants",
     description: "Smakņu mazināšana un putekļu nomākšana atkritumu izgāztuvēs, ceļos un rūpniecības teritorijās.",
     image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png",
     link: "/services/industrial-deodorant-dust"
   },
   {
     id: "sale-of-sand",
-    title: "Smilts pārdošana",
+    title: "Smilšu tirdzniecība",
     description: "Uzticams piegādes avots būvniecības un rūpniecības vajadzībām.",
     image: "/lovable-uploads/553093f7-1241-4723-a1a1-4e7f94c006a2.png",
     link: "/services/sale-of-sand"
@@ -45,7 +45,7 @@ const servicesData = [
   },
   {
     id: "planning-business-development",
-    title: "Plānošana un biznesa attīstība",
+    title: "Plānošana un attīstība",
     description: "Konsultācijas ilgtspējīgai atkritumu izgāztuves pārvaldībai, atbilstībai un izaugsmei.",
     image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png",
     link: "/services/planning-business-development"

@@ -36,7 +36,7 @@ const services = [
   {
     id: 'deodorant-dust',
     icon: Truck,
-    title: 'Промышленный дезодорант от пыли',
+    title: 'Промышленный дезодорант',
     description: 'Специализированные средства контроля запахов и пыли для промышленных объектов.',
     image: '/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png',
     link: '/ru/services/industrial-deodorant-dust'
@@ -44,7 +44,7 @@ const services = [
   {
     id: 'sand-sale',
     icon: Building,
-    title: 'Продажа песка',
+    title: 'Торговля песком',
     description: 'Высококачественный песок для строительных и инженерных проектов.',
     image: '/lovable-uploads/249cb742-4a2b-469e-b6b0-e0da82093c55.png',
     link: '/ru/services/sale-of-sand'
@@ -60,7 +60,7 @@ const services = [
   {
     id: 'planning',
     icon: Users,
-    title: 'Планирование и развитие бизнеса',
+    title: 'Планирование и развитие',
     description: 'Стратегическое планирование и консультации по развитию экологического бизнеса.',
     image: '/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png',
     link: '/ru/services/planning-business-development'

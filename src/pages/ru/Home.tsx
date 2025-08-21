@@ -22,7 +22,7 @@ const pageData = {
   services: [
     {
       id: "alternative-cover",
-      title: "Альтернативное ежедневное и долгосрочное покрытие",
+      title: "Альтернативное покрытие",
       description: "Современная замена почвенного покрытия, снижающая затраты и логистику, соответствующая требованиям ЕС.",
       category: "Основные",
       link: "/ru/services/alternative-cover",
@@ -38,7 +38,7 @@ const pageData = {
     },
     {
       id: "industrial-deodorant-dust",
-      title: "Промышленные дезодоранты и пылеподавление",
+      title: "Промышленный дезодорант",
       description: "Устранение запахов и подавление пыли для полигонов, дорог и промышленных зон.",
       category: "Основные",
       link: "/ru/services/industrial-deodorant-dust",
@@ -46,7 +46,7 @@ const pageData = {
     },
     {
       id: "sale-of-sand",
-      title: "Продажа песка",
+      title: "Торговля песком",
       description: "Надежные поставки для строительных и промышленных нужд.",
       category: "Дополнительные",
       link: "/ru/services/sale-of-sand",
@@ -62,7 +62,7 @@ const pageData = {
     },
     {
       id: "planning-business-development",
-      title: "Планирование и развитие бизнеса",
+      title: "Планирование и развитие",
       description: "Консультации по устойчивому управлению полигонами, соответствию требованиям и развитию.",
       category: "Дополнительные",
       link: "/ru/services/planning-business-development",

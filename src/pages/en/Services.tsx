@@ -10,7 +10,7 @@ import SEO from '@/components/SEO';
 const servicesData = [
   {
     id: "alternative-cover",
-    title: "Alternative daily & long-term cover",
+    title: "Alternative cover",
     description: "Modern replacement for soil cover reducing costs and logistics, EU-compliant.",
     image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png",
     link: "/en/services/alternative-cover"
@@ -24,7 +24,7 @@ const servicesData = [
   },
   {
     id: "industrial-deodorant-dust",
-    title: "Industrial deodorant & anti-dust",
+    title: "Industrial deodorant",
     description: "Odor mitigation and dust suppression for landfills, roads, and industrial areas.",
     image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png",
     link: "/en/services/industrial-deodorant-dust"
@@ -45,7 +45,7 @@ const servicesData = [
   },
   {
     id: "planning-business-development",
-    title: "Planning & business development",
+    title: "Business development",
     description: "Consulting for sustainable landfill management, compliance, and growth.",
     image: "/lovable-uploads/a43da217-a275-4997-b77e-21db21409b5c.png",
     link: "/en/services/planning-business-development"

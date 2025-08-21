@@ -22,21 +22,21 @@ const pageData = {
   services: [
     {
       id: "cover",
-      title: "Dienas un ilgtermiņa pārklājumi",
+      title: "Alternatīvā pārklāšana",
       description: "Videi draudzīgs ikdienas augsnes pārklājuma aizstājējs, kas taupa resursus un izmaksas.",
       category: "Core",
       image: "/lovable-uploads/a010f091-a5ac-4966-a5cb-4a54cc337745.png"
     },
     {
       id: "hydroseeding",
-      title: "Hidrosēšana",
+      title: "Hidrosēja",
       description: "Izdevīga metode erozijas kontrolei un veģetācijas atjaunošanai.",
       category: "Core",
       image: "/lovable-uploads/e2f20f80-baf0-49ad-a9e6-b4b0b332641d.png"
     },
     {
       id: "deodorant-dust",
-      title: "Industriālie dezodoranti un putekļu samazināšana",
+      title: "Industriālais dezodorants",
       description: "Smaku kontrole un putekļu samazināšana poligonos un industriālajās teritorijās.",
       category: "Core",
       image: "/lovable-uploads/06705bd7-68f6-4f18-ae63-9f90140aa6b4.png"

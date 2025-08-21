@@ -58,12 +58,12 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         { label: 'Lietošanas noteikumi', href: '/terms-of-service' }
       ],
       services: [
-        { label: 'Alternatīvā ikdienas pārklāšana', href: '/services/alternative-cover' },
+        { label: 'Alternatīvā pārklāšana', href: '/services/alternative-cover' },
         { label: 'Hidrosēja', href: '/services/hydroseeding' },
-        { label: 'Industriālais dezodorants un pretputekļu apstrāde', href: '/services/industrial-deodorant-dust' },
+        { label: 'Industriālais dezodorants', href: '/services/industrial-deodorant-dust' },
         { label: 'Smilšu tirdzniecība', href: '/services/sale-of-sand' },
         { label: 'Zemes darbi', href: '/services/earthworks' },
-        { label: 'Plānošanas un biznesa attīstības pakalpojumi', href: '/services/planning-business-development' }
+        { label: 'Plānošana un attīstība', href: '/services/planning-business-development' }
       ]
     },
     en: {
@@ -82,12 +82,12 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         { label: 'Terms of Service', href: '/en/terms-of-service' }
       ],
       services: [
-        { label: 'Alternative Cover', href: '/en/services/alternative-cover' },
+        { label: 'Alternative cover', href: '/en/services/alternative-cover' },
         { label: 'Hydroseeding', href: '/en/services/hydroseeding' },
-        { label: 'Industrial Deodorant', href: '/en/services/industrial-deodorant-dust' },
-        { label: 'Sale of Sand', href: '/en/services/sale-of-sand' },
+        { label: 'Industrial deodorant', href: '/en/services/industrial-deodorant-dust' },
+        { label: 'Sale of sand', href: '/en/services/sale-of-sand' },
         { label: 'Earthworks', href: '/en/services/earthworks' },
-        { label: 'Planning & Development', href: '/en/services/planning-business-development' }
+        { label: 'Business development', href: '/en/services/planning-business-development' }
       ]
     },
     ru: {
@@ -106,12 +106,12 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         { label: 'Условия использования', href: '/ru/terms-of-service' }
       ],
       services: [
-        { label: 'Альтернативное повседневное покрытие', href: '/ru/services/alternative-cover' },
+        { label: 'Альтернативное покрытие', href: '/ru/services/alternative-cover' },
         { label: 'Гидропосев', href: '/ru/services/hydroseeding' },
-        { label: 'Промышленный дезодорант и противопылевая обработка', href: '/ru/services/industrial-deodorant-dust' },
+        { label: 'Промышленный дезодорант', href: '/ru/services/industrial-deodorant-dust' },
         { label: 'Торговля песком', href: '/ru/services/sale-of-sand' },
         { label: 'Земляные работы', href: '/ru/services/earthworks' },
-        { label: 'Услуги планирования и развития бизнеса', href: '/ru/services/planning-business-development' }
+        { label: 'Планирование и развитие', href: '/ru/services/planning-business-development' }
       ]
     }
   };
