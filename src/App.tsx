@@ -38,6 +38,15 @@ import RuIndustrialDeodorantDust from "./pages/ru/services/IndustrialDeodorantDu
 import RuSaleOfSand from "./pages/ru/services/SaleOfSand";
 import RuEarthworks from "./pages/ru/services/Earthworks";
 import RuPlanningBusinessDevelopment from "./pages/ru/services/PlanningBusinessDevelopment";
+
+// Latvian service pages
+import LvAlternativeCover from "./pages/services/AlternativeCover";
+import LvHydroseeding from "./pages/services/Hydroseeding";
+import LvIndustrialDeodorantDust from "./pages/services/IndustrialDeodorantDust";
+import LvSaleOfSand from "./pages/services/SaleOfSand";
+import LvEarthworks from "./pages/services/Earthworks";
+import LvPlanningBusinessDevelopment from "./pages/services/PlanningBusinessDevelopment";
+
 import EnAlternativeCover from "./pages/en/services/AlternativeCover";
 import EnHydroseeding from "./pages/en/services/Hydroseeding";
 import EnIndustrialDeodorantDust from "./pages/en/services/IndustrialDeodorantDust";
@@ -114,6 +123,14 @@ const App = () => (
           <Route path="/en/services/sale-of-sand" element={<EnSaleOfSand />} />
           <Route path="/en/services/earthworks" element={<EnEarthworks />} />
           <Route path="/en/services/planning-business-development" element={<EnPlanningBusinessDevelopment />} />
+          
+          {/* Latvian service detail pages */}
+          <Route path="/services/alternative-cover" element={<LvAlternativeCover />} />
+          <Route path="/services/hydroseeding" element={<LvHydroseeding />} />
+          <Route path="/services/industrial-deodorant-dust" element={<LvIndustrialDeodorantDust />} />
+          <Route path="/services/sale-of-sand" element={<LvSaleOfSand />} />
+          <Route path="/services/earthworks" element={<LvEarthworks />} />
+          <Route path="/services/planning-business-development" element={<LvPlanningBusinessDevelopment />} />
           
           {/* English blog articles */}
           <Route path="/en/blog/alternative-daily-cover-solutions" element={<EnAlternativeDailyCoverSolutions />} />
