@@ -50,6 +50,16 @@ import EnAlternativeDailyCoverSolutions from "./pages/en/blog/AlternativeDailyCo
 import EnHydroseedingVsTraditionalSeeding from "./pages/en/blog/HydroseedingVsTraditionalSeeding";
 import EnSustainableWasteManagementEuCompliance from "./pages/en/blog/SustainableWasteManagementEuCompliance";
 
+// Latvian blog pages
+import LvAlternativeDailyCoverSolutions from "./pages/blog/AlternativeDailyCoverSolutions";
+import LvHydroseedingVsTraditionalSeeding from "./pages/blog/HydroseedingVsTraditionalSeeding";
+import LvSustainableWasteManagementEuCompliance from "./pages/blog/SustainableWasteManagementEuCompliance";
+
+// Russian blog pages
+import RuAlternativeDailyCoverSolutions from "./pages/ru/blog/AlternativeDailyCoverSolutions";
+import RuHydroseedingVsTraditionalSeeding from "./pages/ru/blog/HydroseedingVsTraditionalSeeding";
+import RuSustainableWasteManagementEuCompliance from "./pages/ru/blog/SustainableWasteManagementEuCompliance";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -109,6 +119,16 @@ const App = () => (
           <Route path="/en/blog/alternative-daily-cover-solutions" element={<EnAlternativeDailyCoverSolutions />} />
           <Route path="/en/blog/hydroseeding-vs-traditional-seeding" element={<EnHydroseedingVsTraditionalSeeding />} />
           <Route path="/en/blog/sustainable-waste-management-eu-compliance" element={<EnSustainableWasteManagementEuCompliance />} />
+          
+          {/* Latvian blog articles */}
+          <Route path="/blog/alternative-daily-cover-solutions" element={<LvAlternativeDailyCoverSolutions />} />
+          <Route path="/blog/hydroseeding-vs-traditional-seeding" element={<LvHydroseedingVsTraditionalSeeding />} />
+          <Route path="/blog/sustainable-waste-management-eu-compliance" element={<LvSustainableWasteManagementEuCompliance />} />
+          
+          {/* Russian blog articles */}
+          <Route path="/ru/blog/alternative-daily-cover-solutions" element={<RuAlternativeDailyCoverSolutions />} />
+          <Route path="/ru/blog/hydroseeding-vs-traditional-seeding" element={<RuHydroseedingVsTraditionalSeeding />} />
+          <Route path="/ru/blog/sustainable-waste-management-eu-compliance" element={<RuSustainableWasteManagementEuCompliance />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

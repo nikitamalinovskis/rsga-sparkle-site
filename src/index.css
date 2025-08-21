@@ -122,6 +122,17 @@
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
   
+  /* Prevent animations on page load to fix blinking */
+  .preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+  
   /* Smooth scroll behavior */
   html {
     scroll-behavior: smooth;
@@ -174,6 +185,11 @@
   }
   
   .animate-stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  body:not(.preload) .animate-stagger {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeSlideUp 0.6s ease-out forwards;
