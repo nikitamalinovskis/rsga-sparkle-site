@@ -84,7 +84,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         </div>
       </div>
 
-      <div className="container-3of4 relative z-10 py-16">
+      <div className="container mx-auto px-4 lg:px-6 relative z-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="footer-column opacity-0">
@@ -184,7 +184,7 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
       <div className="w-full h-px bg-white/30 mt-12"></div>
       
       {/* Copyright - constrained width */}
-      <div className="container-3of4 py-8">
+      <div className="container mx-auto px-4 lg:px-6 py-8">
         <div className="text-center">
           <p className="text-white/60 text-sm">
             © {new Date().getFullYear()} {contacts.company} (Registration No: {contacts.registration_no}). All rights reserved.
