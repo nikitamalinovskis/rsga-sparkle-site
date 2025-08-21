@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
@@ -118,9 +119,12 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, cta }) => {
                     ? "bg-brand-primary hover:bg-[#03294d] text-white shadow-lg hover:shadow-xl" 
                     : "bg-transparent border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10"
                 } focus-ring`}
+                asChild
               >
-                {button.label}
-                {index === 0 && <ArrowRight className="ml-2 h-4 w-4" />}
+                <Link to={button.action}>
+                  {button.label}
+                  {index === 0 && <ArrowRight className="ml-2 h-4 w-4" />}
+                </Link>
               </Button>
             ))}
           </div>

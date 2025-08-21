@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Shield, Droplets, Wind, Truck, Pickaxe, TrendingUp } from 'lucide-react';
@@ -163,13 +163,13 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
                   {service.description}
                 </CardDescription>
                 
-                <a 
-                  href={service.link || "#"} 
+                <Link 
+                  to={service.link || "#"} 
                   className="inline-flex items-center text-brand-primary hover:text-brand-primary-strong transition-all duration-300 link-underline focus-ring font-medium group-hover:translate-x-2"
                 >
                   {getLocalizedText('learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
+                </Link>
               </CardContent>
               
               {/* Hover accent line */}

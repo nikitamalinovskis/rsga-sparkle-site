@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
@@ -125,9 +125,12 @@ const CTA: React.FC<CTAProps> = ({ text, button }) => {
             <Button 
               size="lg"
               className="bg-white text-brand-primary hover:bg-white/90 hover:text-brand-primary-strong transition-all duration-300 shadow-2xl hover:shadow-3xl px-8 py-4 text-lg font-semibold hover:scale-105 group"
+              asChild
             >
-              {button.label}
-              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <Link to={button.action}>
+                {button.label}
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
             </Button>
           </div>
 
