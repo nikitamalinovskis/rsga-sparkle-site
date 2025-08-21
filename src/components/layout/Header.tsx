@@ -133,7 +133,7 @@ const Header = () => {
                     <NavigationMenuItem key={link.href}>
                       {link.hasDropdown ? (
                         <>
-                          <NavigationMenuTrigger className="text-fg-secondary hover:text-brand-primary transition-all duration-300 focus-ring font-medium bg-transparent text-base h-auto p-0">
+                          <NavigationMenuTrigger className="text-fg-secondary hover:text-brand-primary hover:bg-brand-tint transition-all duration-300 focus-ring font-medium bg-transparent text-base h-auto px-4 py-2 rounded-md">
                             {link.label}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
