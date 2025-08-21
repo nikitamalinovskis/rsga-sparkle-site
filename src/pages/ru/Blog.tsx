@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, ArrowRight, User } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -53,6 +54,11 @@ const categories = ['Все', 'Экологические решения', 'Те
 const Blog = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Блог RSGA | Современные тренды в управлении отходами"
+        description="Статьи об инновациях, экологии и устойчивом управлении отходами."
+        canonical="https://rsga.lv/ru/blog"
+      />
       <Header />
       
       <main>

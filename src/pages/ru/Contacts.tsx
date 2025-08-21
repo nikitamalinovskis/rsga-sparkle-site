@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, FileText, Clock } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -19,6 +20,11 @@ const contacts = {
 const Contacts = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Контакты RSGA | Управление отходами в Латвии и Европе"
+        description="Свяжитесь с RSGA для консультаций и услуг в сфере управления отходами."
+        canonical="https://rsga.lv/ru/contacts"
+      />
       <Header />
       
       <main>

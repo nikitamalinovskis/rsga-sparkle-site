@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Leaf, Truck, Droplets, Wrench, Building, Users } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -69,6 +70,11 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Услуги по управлению отходами | Полигоны, Гидропосев, Консалтинг"
+        description="Полный спектр услуг: покрытия полигонов, дезодоранты и пылеподавление, гидропосев, продажа песка, земляные работы и бизнес-консалтинг."
+        canonical="https://rsga.lv/ru/services"
+      />
       <Header />
       
       <main>

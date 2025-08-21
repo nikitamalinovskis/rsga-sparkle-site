@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, User, ArrowRight, Shield, Droplets, Leaf } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -58,6 +59,11 @@ const blogPosts = [
 const Blog = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="RSGA Blogs | Atkritumu apsaimniekošanas raksti un tendences"
+        description="Raksti par ilgtspējību, inovācijām un atkritumu apsaimniekošanas nozares aktualitātēm."
+        canonical="https://rsga.lv/blog"
+      />
       <Header />
       
       <main>

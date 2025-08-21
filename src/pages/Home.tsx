@@ -7,6 +7,7 @@ import About from '@/components/sections/About';
 import Endorsements from '@/components/sections/Endorsements';
 import CTA from '@/components/sections/CTA';
 import Footer from '@/components/layout/Footer';
+import SEO from '@/components/SEO';
 
 // CMS Data - This would typically come from a CMS or API
 const pageData = {
@@ -113,7 +114,11 @@ const pageData = {
 const Home = () => {
   return (
     <div className="min-h-screen">
-      {/* SEO Meta Tags would be handled by a Head component or helmet */}
+      <SEO 
+        title="RSGA | Ilgtspējīgi atkritumu apsaimniekošanas risinājumi Latvijā un Eiropā"
+        description="RSGA nodrošina inovatīvus, videi draudzīgus un izdevīgus atkritumu apsaimniekošanas pakalpojumus, poligonu pārklājumus, hidrosēšanu, zemes darbus un konsultācijas."
+        canonical="https://rsga.lv"
+      />
       <Header />
       
       <main>

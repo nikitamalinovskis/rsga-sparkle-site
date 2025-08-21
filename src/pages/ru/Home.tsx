@@ -7,6 +7,7 @@ import About from '@/components/sections/About';
 import Endorsements from '@/components/sections/Endorsements';
 import CTA from '@/components/sections/CTA';
 import Footer from '@/components/layout/Footer';
+import SEO from '@/components/SEO';
 
 // Russian content for RSGA
 const pageData = {
@@ -119,6 +120,11 @@ const pageData = {
 const Home = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="RSGA | Современные решения в управлении отходами в Латвии и Европе"
+        description="RSGA предлагает инновационные и экологичные услуги по управлению отходами: покрытия полигонов, гидропосев, земляные работы, консалтинг и поставки песка."
+        canonical="https://rsga.lv/ru"
+      />
       <Header />
       
       <main>

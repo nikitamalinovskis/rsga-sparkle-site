@@ -7,6 +7,7 @@ import About from '@/components/sections/About';
 import Endorsements from '@/components/sections/Endorsements';
 import CTA from '@/components/sections/CTA';
 import Footer from '@/components/layout/Footer';
+import SEO from '@/components/SEO';
 
 // English content for RSGA
 const pageData = {
@@ -119,6 +120,11 @@ const pageData = {
 const Home = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="RSGA | Sustainable Waste Management & Landfill Solutions in Europe"
+        description="RSGA provides innovative, eco-friendly, and cost-effective waste management services, landfill daily cover, hydroseeding, earthworks, and consulting across Europe."
+        canonical="https://rsga.lv/en"
+      />
       <Header />
       
       <main>

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -46,6 +47,11 @@ const termsSections = [
 const TermsOfService = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Terms of Service | RSGA Waste Management"
+        description="Review the conditions and rules for using RSGA's website and professional services."
+        canonical="https://rsga.lv/en/terms-of-service"
+      />
       <Header />
       
       <main>

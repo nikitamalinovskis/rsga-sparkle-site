@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Droplets, Wind, Truck, Pickaxe, TrendingUp } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const servicesData = [
   {
@@ -75,6 +76,11 @@ const getServiceIcon = (id: string) => {
 const Services = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Waste Management Services | Landfill, Hydroseeding, Consulting | RSGA"
+        description="Explore RSGA's professional services: landfill cover systems, industrial deodorant, hydroseeding, sand supply, earthworks, and sustainable business consulting."
+        canonical="https://rsga.lv/en/services"
+      />
       <Header />
       
       <main>

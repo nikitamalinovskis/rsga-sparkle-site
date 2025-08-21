@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FileText, Scale, Shield, AlertTriangle, CheckCircle, Users, Calendar, Phone } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -69,6 +70,11 @@ const sections = [
 const TermsOfService = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Lietošanas noteikumi | RSGA"
+        description="Iepazīstieties ar mājaslapas un pakalpojumu lietošanas nosacījumiem."
+        canonical="https://rsga.lv/terms-of-service"
+      />
       <Header />
       
       <main>

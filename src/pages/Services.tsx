@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Droplets, Wind, Truck, Pickaxe, TrendingUp } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const servicesData = [
   {
@@ -75,6 +76,11 @@ const getServiceIcon = (id: string) => {
 const Services = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Atkritumu apsaimniekošanas pakalpojumi | Poligoni, Hidrosēšana, Konsultācijas"
+        description="Pilns RSGA pakalpojumu klāsts: poligonu pārklājumi, industriālie dezodoranti, hidrosēšana, smilts piegāde, zemes darbi un uzņēmējdarbības konsultācijas."
+        canonical="https://rsga.lv/services"
+      />
       <Header />
       
       <main>

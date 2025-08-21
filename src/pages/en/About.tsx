@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Users, Award, Globe } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -25,6 +26,11 @@ const stats = [
 const About = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="About RSGA | Leading Waste Management Company in Latvia & Europe"
+        description="Learn about RSGA's mission, experience, service geography, and team of waste management experts."
+        canonical="https://rsga.lv/en/about"
+      />
       <Header />
       
       <main>

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent } from '@/components/ui/card';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -15,6 +16,11 @@ const contacts = {
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Политика конфиденциальности | RSGA"
+        description="Узнайте, как RSGA обрабатывает и защищает ваши персональные данные."
+        canonical="https://rsga.lv/ru/privacy-policy"
+      />
       <Header />
       
       <main>

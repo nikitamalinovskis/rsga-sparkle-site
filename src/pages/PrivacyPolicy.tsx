@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shield, Eye, UserCheck, Database, Lock, FileText, Calendar } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const contacts = {
   company: "SIA RSGA",
@@ -59,6 +60,11 @@ const sections = [
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Privātuma politika | RSGA"
+        description="Uzziniet, kā RSGA apkopo, apstrādā un aizsargā jūsu personas datus."
+        canonical="https://rsga.lv/privacy-policy"
+      />
       <Header />
       
       <main>
