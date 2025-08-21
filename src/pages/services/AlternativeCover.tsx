@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, CheckCircle, Leaf, TrendingDown, Shield, Zap, Globe } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Leaf, TrendingDown, Shield, Zap, Globe, Home } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 const contacts = {
@@ -69,13 +69,18 @@ const AlternativeCover = () => {
         {/* Breadcrumbs */}
         <section className="py-6 bg-bg-subtle">
           <div className="container-3of4">
-            <div className="flex items-center gap-2 text-sm">
-              <Link to="/" className="text-fg-muted hover:text-brand-primary transition-colors">Sākumlapa</Link>
-              <span className="text-fg-muted">/</span>
-              <Link to="/services" className="text-fg-muted hover:text-brand-primary transition-colors">Pakalpojumi</Link>
-              <span className="text-fg-muted">/</span>
-              <span className="text-fg-primary">Alternatīvs segums</span>
-            </div>
+            <nav className="flex items-center space-x-2 text-sm text-fg-muted">
+              <Link to="/" className="hover:text-brand-primary transition-colors flex items-center">
+                <Home className="h-4 w-4 mr-1" />
+                Sākumlapa
+              </Link>
+              <span>→</span>
+              <Link to="/services" className="hover:text-brand-primary transition-colors">
+                Pakalpojumi
+              </Link>
+              <span>→</span>
+              <span className="text-fg-primary">Alternatīvā pārklāšana</span>
+            </nav>
           </div>
         </section>
 
