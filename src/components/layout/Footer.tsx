@@ -58,12 +58,12 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
         { label: 'Lietošanas noteikumi', href: '/terms-of-service' }
       ],
       services: [
-        { label: 'Dienas un ilgtermiņa pārklājumi', href: '/services/alternative-cover' },
-        { label: 'Hidrosēšana', href: '/services/hydroseeding' },
-        { label: 'Industriālie dezodoranti un putekļu samazināšana', href: '/services/industrial-deodorant-dust' },
+        { label: 'Alternatīvā ikdienas pārklāšana', href: '/services/alternative-cover' },
+        { label: 'Hidrosēja', href: '/services/hydroseeding' },
+        { label: 'Industriālais dezodorants un pretputekļu apstrāde', href: '/services/industrial-deodorant-dust' },
         { label: 'Smilšu tirdzniecība', href: '/services/sale-of-sand' },
         { label: 'Zemes darbi', href: '/services/earthworks' },
-        { label: 'Plānošana un attīstība', href: '/services/planning-business-development' }
+        { label: 'Plānošanas un biznesa attīstības pakalpojumi', href: '/services/planning-business-development' }
       ]
     },
     en: {
@@ -99,19 +99,19 @@ const Footer: React.FC<FooterProps> = ({ contacts }) => {
       contactTitle: 'Контактная информация',
       quickLinks: [
         { label: 'Услуги', href: '/ru/services' },
-        { label: 'О компании', href: '/ru/about' },
+        { label: 'О нас', href: '/ru/about' },
         { label: 'Контакты', href: '/ru/contacts' },
         { label: 'Блог', href: '/ru/blog' },
         { label: 'Политика конфиденциальности', href: '/ru/privacy-policy' },
         { label: 'Условия использования', href: '/ru/terms-of-service' }
       ],
       services: [
-        { label: 'Ежедневные и долгосрочные покрытия', href: '/ru/services/alternative-cover' },
+        { label: 'Альтернативное повседневное покрытие', href: '/ru/services/alternative-cover' },
         { label: 'Гидропосев', href: '/ru/services/hydroseeding' },
-        { label: 'Промышленный дезодорант', href: '/ru/services/industrial-deodorant-dust' },
-        { label: 'Продажа песка', href: '/ru/services/sale-of-sand' },
+        { label: 'Промышленный дезодорант и противопылевая обработка', href: '/ru/services/industrial-deodorant-dust' },
+        { label: 'Торговля песком', href: '/ru/services/sale-of-sand' },
         { label: 'Земляные работы', href: '/ru/services/earthworks' },
-        { label: 'Планирование и развитие', href: '/ru/services/planning-business-development' }
+        { label: 'Услуги планирования и развития бизнеса', href: '/ru/services/planning-business-development' }
       ]
     }
   };

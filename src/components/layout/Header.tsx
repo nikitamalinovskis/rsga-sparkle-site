@@ -92,19 +92,19 @@ const Header = () => {
     { href: '/en/services/earthworks', label: 'Earthworks' },
     { href: '/en/services/planning-business-development', label: 'Planning & Development' }
   ] : currentLanguage === 'ru' ? [
-    { href: '/ru/services/alternative-cover', label: 'Альтернативное покрытие' },
+    { href: '/ru/services/alternative-cover', label: 'Альтернативное повседневное покрытие' },
     { href: '/ru/services/hydroseeding', label: 'Гидропосев' },
-    { href: '/ru/services/industrial-deodorant-dust', label: 'Промышленный дезодорант' },
-    { href: '/ru/services/sale-of-sand', label: 'Продажа песка' },
+    { href: '/ru/services/industrial-deodorant-dust', label: 'Промышленный дезодорант и противопылевая обработка' },
+    { href: '/ru/services/sale-of-sand', label: 'Торговля песком' },
     { href: '/ru/services/earthworks', label: 'Земляные работы' },
-    { href: '/ru/services/planning-business-development', label: 'Планирование и развитие' }
+    { href: '/ru/services/planning-business-development', label: 'Услуги планирования и развития бизнеса' }
   ] : [
-    { href: '/services/alternative-cover', label: 'Alternatīvs segums' },
-    { href: '/services/hydroseeding', label: 'Hidrosēkla' },
-    { href: '/services/industrial-deodorant-dust', label: 'Rūpnieciskais dezodorants' },
-    { href: '/services/sale-of-sand', label: 'Smilts pārdošana' },
+    { href: '/services/alternative-cover', label: 'Alternatīvā ikdienas pārklāšana' },
+    { href: '/services/hydroseeding', label: 'Hidrosēja' },
+    { href: '/services/industrial-deodorant-dust', label: 'Industriālais dezodorants un pretputekļu apstrāde' },
+    { href: '/services/sale-of-sand', label: 'Smilšu tirdzniecība' },
     { href: '/services/earthworks', label: 'Zemes darbi' },
-    { href: '/services/planning-business-development', label: 'Plānošana un attīstība' }
+    { href: '/services/planning-business-development', label: 'Plānošanas un biznesa attīstības pakalpojumi' }
   ];
   const RSGALogo = () => (
     <Link to={currentLanguage === 'en' ? "/en" : currentLanguage === 'ru' ? "/ru" : "/"} className="inline-block">
