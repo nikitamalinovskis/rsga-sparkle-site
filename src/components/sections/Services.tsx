@@ -76,10 +76,10 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
       <div className="container-3of4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-fg-primary mb-4">
-            Services
+            Услуги
           </h2>
           <p className="text-lg md:text-xl text-fg-secondary max-w-3xl mx-auto leading-relaxed">
-            Comprehensive environmental solutions for sustainable waste management
+            Комплексные экологические решения для устойчивого управления отходами
           </p>
           <div className="w-24 h-1 bg-brand-primary mx-auto mt-6 rounded-full" />
         </div>
@@ -135,7 +135,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
                   href={service.link || "#"} 
                   className="inline-flex items-center text-brand-primary hover:text-brand-primary-strong transition-all duration-300 link-underline focus-ring font-medium group-hover:translate-x-2"
                 >
-                  Learn more
+                  Подробнее
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
               </CardContent>
