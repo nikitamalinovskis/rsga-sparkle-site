@@ -15,7 +15,23 @@ const Header = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const isEnglish = location.pathname.startsWith('/en');
+  const currentPath = location.pathname;
+  
+  // Determine current language and base path
+  const getCurrentLanguage = () => {
+    if (currentPath.startsWith('/en')) return 'en';
+    if (currentPath.startsWith('/ru')) return 'ru';
+    return 'lv';
+  };
+  
+  const getBasePath = () => {
+    if (currentPath.startsWith('/en')) return currentPath.replace('/en', '');
+    if (currentPath.startsWith('/ru')) return currentPath.replace('/ru', '');
+    return currentPath;
+  };
+  
+  const currentLanguage = getCurrentLanguage();
+  const basePath = getBasePath();
   useEffect(() => {
     const updateScrollProgress = () => {
       const scrollPx = document.documentElement.scrollTop;
@@ -27,7 +43,7 @@ const Header = () => {
     window.addEventListener('scroll', updateScrollProgress);
     return () => window.removeEventListener('scroll', updateScrollProgress);
   }, []);
-  const navLinks = [{
+  const navLinks = currentLanguage === 'en' ? [{
     href: '/en/services',
     label: 'Services',
     hasDropdown: true
@@ -40,18 +56,58 @@ const Header = () => {
   }, {
     href: '/en/blog',
     label: 'Blog'
+  }] : currentLanguage === 'ru' ? [{
+    href: '/ru/services',
+    label: 'Услуги',
+    hasDropdown: true
+  }, {
+    href: '/ru/about',
+    label: 'О нас'
+  }, {
+    href: '/ru/contacts',
+    label: 'Контакты'
+  }, {
+    href: '/ru/blog',
+    label: 'Блог'
+  }] : [{
+    href: '/services',
+    label: 'Pakalpojumi',
+    hasDropdown: true
+  }, {
+    href: '/about',
+    label: 'Par mums'
+  }, {
+    href: '/contacts',
+    label: 'Kontakti'
+  }, {
+    href: '/blog',
+    label: 'Blogs'
   }];
 
-  const serviceLinks = [
+  const serviceLinks = currentLanguage === 'en' ? [
     { href: '/en/services/alternative-cover', label: 'Alternative Cover' },
     { href: '/en/services/hydroseeding', label: 'Hydroseeding' },
     { href: '/en/services/industrial-deodorant-dust', label: 'Industrial Deodorant' },
     { href: '/en/services/sale-of-sand', label: 'Sale of Sand' },
     { href: '/en/services/earthworks', label: 'Earthworks' },
     { href: '/en/services/planning-business-development', label: 'Planning & Development' }
+  ] : currentLanguage === 'ru' ? [
+    { href: '/ru/services/alternative-cover', label: 'Альтернативное покрытие' },
+    { href: '/ru/services/hydroseeding', label: 'Гидропосев' },
+    { href: '/ru/services/industrial-deodorant-dust', label: 'Промышленный дезодорант' },
+    { href: '/ru/services/sale-of-sand', label: 'Продажа песка' },
+    { href: '/ru/services/earthworks', label: 'Земляные работы' },
+    { href: '/ru/services/planning-business-development', label: 'Планирование и развитие' }
+  ] : [
+    { href: '/services/alternative-cover', label: 'Alternatīvs segums' },
+    { href: '/services/hydroseeding', label: 'Hidrosēkla' },
+    { href: '/services/industrial-deodorant-dust', label: 'Rūpnieciskais dezodorants' },
+    { href: '/services/sale-of-sand', label: 'Smilts pārdošana' },
+    { href: '/services/earthworks', label: 'Zemes darbi' },
+    { href: '/services/planning-business-development', label: 'Plānošana un attīstība' }
   ];
   const RSGALogo = () => (
-    <Link to={isEnglish ? "/en" : "/"} className="inline-block">
+    <Link to={currentLanguage === 'en' ? "/en" : currentLanguage === 'ru' ? "/ru" : "/"} className="inline-block">
       <img src="/lovable-uploads/d2cfb1f1-73a7-43a6-8542-bf1e8bc0883c.png" alt="RSGA Logo" className="h-8 w-auto" />
     </Link>
   );
@@ -117,9 +173,20 @@ const Header = () => {
                 <Globe className="h-4 w-4 text-fg-muted" />
                 <div className="flex items-center space-x-1 text-sm">
                   <Link
-                    to="/en"
+                    to={basePath === '' ? '/' : basePath}
                     className={`px-2 py-1 rounded transition-colors ${
-                      isEnglish 
+                      currentLanguage === 'lv' 
+                        ? 'bg-brand-primary text-white' 
+                        : 'text-fg-secondary hover:text-brand-primary'
+                    }`}
+                  >
+                    LV
+                  </Link>
+                  <span className="text-fg-muted">|</span>
+                  <Link
+                    to={basePath === '' ? '/en' : `/en${basePath}`}
+                    className={`px-2 py-1 rounded transition-colors ${
+                      currentLanguage === 'en' 
                         ? 'bg-brand-primary text-white' 
                         : 'text-fg-secondary hover:text-brand-primary'
                     }`}
@@ -128,20 +195,22 @@ const Header = () => {
                   </Link>
                   <span className="text-fg-muted">|</span>
                   <Link
-                    to="/"
+                    to={basePath === '' ? '/ru' : `/ru${basePath}`}
                     className={`px-2 py-1 rounded transition-colors ${
-                      !isEnglish 
+                      currentLanguage === 'ru' 
                         ? 'bg-brand-primary text-white' 
                         : 'text-fg-secondary hover:text-brand-primary'
                     }`}
                   >
-                    LV
+                    RU
                   </Link>
                 </div>
               </div>
               
               <Button asChild variant="default" className="focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                <Link to={isEnglish ? "/en/contacts" : "/contacts"}>Contact us</Link>
+                <Link to={currentLanguage === 'en' ? "/en/contacts" : currentLanguage === 'ru' ? "/ru/contacts" : "/contacts"}>
+                  {currentLanguage === 'en' ? 'Contact us' : currentLanguage === 'ru' ? 'Связаться с нами' : 'Sazināties ar mums'}
+                </Link>
               </Button>
             </div>
 
@@ -197,9 +266,21 @@ const Header = () => {
                   <Globe className="h-4 w-4 text-fg-muted" />
                   <div className="flex items-center space-x-1 text-sm">
                     <Link
-                      to="/en"
+                      to={basePath === '' ? '/' : basePath}
                       className={`px-3 py-2 rounded transition-colors font-medium ${
-                        isEnglish 
+                        currentLanguage === 'lv' 
+                          ? 'bg-brand-primary text-white' 
+                          : 'text-fg-secondary hover:text-brand-primary hover:bg-brand-tint'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      LV
+                    </Link>
+                    <span className="text-fg-muted mx-1">|</span>
+                    <Link
+                      to={basePath === '' ? '/en' : `/en${basePath}`}
+                      className={`px-3 py-2 rounded transition-colors font-medium ${
+                        currentLanguage === 'en' 
                           ? 'bg-brand-primary text-white' 
                           : 'text-fg-secondary hover:text-brand-primary hover:bg-brand-tint'
                       }`}
@@ -209,23 +290,23 @@ const Header = () => {
                     </Link>
                     <span className="text-fg-muted mx-1">|</span>
                     <Link
-                      to="/"
+                      to={basePath === '' ? '/ru' : `/ru${basePath}`}
                       className={`px-3 py-2 rounded transition-colors font-medium ${
-                        !isEnglish 
+                        currentLanguage === 'ru' 
                           ? 'bg-brand-primary text-white' 
                           : 'text-fg-secondary hover:text-brand-primary hover:bg-brand-tint'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      LV
+                      RU
                     </Link>
                   </div>
                 </div>
 
                 <div className="px-4 pt-4">
                   <Button asChild variant="default" className="w-full focus-ring bg-brand-primary hover:bg-brand-primary-strong text-white">
-                    <Link to={isEnglish ? "/en/contacts" : "/contacts"} onClick={() => setIsMenuOpen(false)}>
-                      Contact us
+                    <Link to={currentLanguage === 'en' ? "/en/contacts" : currentLanguage === 'ru' ? "/ru/contacts" : "/contacts"} onClick={() => setIsMenuOpen(false)}>
+                      {currentLanguage === 'en' ? 'Contact us' : currentLanguage === 'ru' ? 'Связаться с нами' : 'Sazināties ar mums'}
                     </Link>
                   </Button>
                 </div>
